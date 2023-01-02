@@ -1,0 +1,50 @@
+@use "../layout/barContainer";
+
+@use "../base/typography";
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+
+nav {
+  @include mixins.flex-center("", center);
+  width: 100%;
+  height: variables.$navigation_height_mobile;
+  margin-top: variables.$nav_margin_top_mobile;
+  justify-content: space-evenly;
+
+  .company_name_icon_a_container {
+    width: variables.$company_name_icon_a_container_width_mobile;
+    height: variables.$company_name_icon_a_container_height_mobile;
+    display: inline-flex;
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      text-decoration: none;
+    }
+  }
+
+  form {
+    @include mixins.flex-center("", center);
+    height: 5vh;
+    .searchbar {
+      box-sizing: border-box;
+      padding-right: variables.$search_overlap_margin_mobile;
+      &:focus {
+        outline: none;
+      }
+    }
+    .btn_submit {
+      margin-left: calc(variables.$search_overlap_margin_mobile * -1);
+      font-size: smaller;
+      font-weight: lighter;
+    }
+  }
+
+  .navigation_bar {
+    @include mixins.flex-center("", center);
+    font-size: variables.$navbar_size_mobile;
+    i {
+      color: black;
+    }
+  }
+}

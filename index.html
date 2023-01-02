@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src=""></script>
+  </head>
+  <body>
+    <div class="main_container">
+      <nav>
+        <a class="company_name_icon_a_container" href="index.html">
+          <label for="__company_name">
+            <img
+              src="./assets/logo/main_logo.svg"
+              alt="company_logo"
+              class="__brand_logo"
+            />
+          </label>
+          <h1 class="__company_name">Delicious Food</h1>
+        </a>
+        <form action="" class="navigation">
+          <input type="text" class="searchbar" placeholder="Search..." />
+          <input
+            type="submit"
+            class="btn_submit --btn_filled"
+            value="&#xf002; SEARCH"
+          />
+        </form>
+        <div class="navigation_bar">
+          <i class="fa-solid fa-bars --add_color"></i>
+        </div>
+      </nav>
+      <main class="page_container">
+        <section class="recipe_list_container">
+          <div class="spinner">
+            <i class="fa-solid fa-spinner"></i>
+          </div>
+          <div class="recipe_list">
+            <div class="meal_container">
+              <img
+                src="./assets/images/pizza.jpg"
+                alt="meal_pic"
+                class="__meal_img"
+              />
+              <div class="meal_info">
+                <p class="__meal_name --add_color">PIZZA DIP</p>
+                <p class="__recipe_owner">SIMPLY RECIPES</p>
+              </div>
+            </div>
+            <div class="btn_pagination_container">
+              <button class="page_left">
+                <p class="__arrow_left --arrow">
+                  <i class="fa-solid fa-arrow-left --add_color"></i>
+                </p>
+                <p class="__page --add_color">Page</p>
+                <p class="__page_number_left --add_color">1</p>
+              </button>
+              <button class="page_right">
+                <p class="__page --add_color">Page</p>
+                <p class="__page_number_right --add_color">1</p>
+                <p class="__arrow_right --arrow">
+                  <i class="fa-solid fa-arrow-right --add_color"></i>
+                </p>
+              </button>
+            </div>
+          </div>
+        </section>
+        <section class="recipe_container">
+          <div class="spinner">
+            <i class="fa-solid fa-spinner"></i>
+          </div>
+          <p class="__empty_page_message">
+            <i class="fa-regular fa-face-smile --add_color"></i>
+            Start by searching for a recipe or an ingredient. Have fun!
+          </p>
+          <div class="img_container">
+            <img
+              class="__img_big"
+              src="./assets/images/pizza.jpg"
+              alt="meal_image"
+            />
+            <div class="__img_shadow"></div>
+            <div class="__meal_name_tag"></div>
+          </div>
+          <div class="serving_container">
+            <div class="cooking_time_container">
+              <p class="__cooking_time_icon">
+                <i class="fa-regular fa-clock --add_color"></i>
+              </p>
+              <p class="__cooking_time_number">100</p>
+              <p class="__minute_text">MINUTES</p>
+            </div>
+            <div class="number_of_serving_container">
+              <p class="__number_of_serving_icon">
+                <i class="fa-solid fa-user-group --add_color"></i>
+              </p>
+              <p class="__number_of_serving">4</p>
+              <p class="__servings_text">SERVINGS</p>
+              <div class="btn_number_of_serving_container">
+                <button class="__btn_decrease --add_color">
+                  <i class="fa-solid fa-minus --minus"></i>
+                </button>
+                <button class="__btn_increase --add_color">
+                  <i class="fa-solid fa-plus --plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="btn_bookmark_container">
+              <button class="__btn_bookmark --btn_filled">
+                <i class="fa-regular fa-bookmark"></i>
+              </button>
+            </div>
+          </div>
+          <div class="ingredient_container">
+            <h5 class="__ingredient_heading --add_color">RECIPE INGREDIENTS</h5>
+            <div class="ingredient_info_container">
+              <label for="__ingredient" class="--check_icon"
+                ><i class="fa-solid fa-check --add_color"></i
+              ></label>
+              <p class="__ingredient">250 g dried medium egg noodles</p>
+            </div>
+          </div>
+          <div class="cooking_instruction_container">
+            <h5 class="__instruction_heading --add_color">HOW TO COOK IT</h5>
+            <p class="__instruction_info">
+              This recipe was carefully designed and tested by
+              <span class="__cook_name">Jamie Oliver</span>. Please check out
+              directions at their website.
+            </p>
+            <button class="__btn_instruction --btn_filled">
+              <p class="--direction">DIRECTIONS</p>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div class="bar_container">
+      <div class="add_recipe">
+        <label class="__add_recipe" for="__add_recipe"
+          ><i class="fa-regular fa-pen-to-square --add_color"></i
+        ></label>
+        <h2 class="__add_recipe">ADD RECIPE</h2>
+      </div>
+      <div class="bookmark">
+        <label class="__bookmark" for="__bookmark"
+          ><i class="fa-regular fa-bookmark --add_color"></i
+        ></label>
+        <h2 class="__bookmark">BOOKMARKS</h2>
+      </div>
+    </div>
+    <div class="add_recipe_section">
+      <div class="add_recipe_container">
+        <button class="__btn_close_recipe_data">&times;</button>
+        <form class="upload">
+          <div class="upload_form_container">
+            <div class="upload_container">
+              <h3 class="--upload__heading">RECIPE DATA</h3>
+              <div class="upload_item_container">
+                <label class="--label_upload">Title</label>
+                <input
+                  value=""
+                  required
+                  name="title"
+                  type="text"
+                  class="--input_upload"
+                />
+              </div>
+              <div class="upload_item_container">
+                <label class="--label_upload">URL</label>
+                <input
+                  value=""
+                  required
+                  name="sourceUrl"
+                  type="text"
+                  class="--input_upload"
+                />
+              </div>
+              <div class="upload_item_container">
+                <label class="--label_upload">Image URL</label>
+                <input
+                  value=""
+                  required
+                  name="image"
+                  type="text"
+                  class="--input_upload"
+                />
+              </div>
+              <div class="upload_item_container">
+                <label class="--label_upload">Publisher</label>
+                <input
+                  value=""
+                  required
+                  name="publisher"
+                  type="text"
+                  class="--input_upload"
+                />
+              </div>
+              <div class="upload_item_container">
+                <label class="--label_upload">Prep time</label>
+                <input
+                  value=""
+                  required
+                  name="cookingTime"
+                  type="number"
+                  class="--input_upload"
+                />
+              </div>
+              <div class="upload_item_container">
+                <label class="--label_upload">Servings</label>
+                <input
+                  value=""
+                  required
+                  name="servings"
+                  type="number"
+                  class="--input_upload"
+                />
+              </div>
+            </div>
+            <div class="upload__column">
+              <h3 class="--upload__heading">INGREDIENTS</h3>
+              <div class="upload_item_container">
+                <label class="--label_upload">Ingredient 1</label>
+                <input
+                  value=""
+                  type="text"
+                  required
+                  name="ingredient-1"
+                  placeholder="Quantity,Unit,Description"
+                  class="--input_upload"
+                />
+              </div>
+              <div class="upload_item_container">
+                <label class="--label_upload">Ingredient 2</label>
+                <input
+                  value=""
+                  type="text"
+                  name="ingredient-2"
+                  placeholder="Quantity,Unit,Description"
+                  class="--input_upload"
+                />
+              </div>
+              <div class="upload_item_container">
+                <label class="--label_upload">Ingredient 3</label>
+                <input value=""" type="text" name="ingredient-3"
+                placeholder="Format: 'Quantity,Unit,Description'"
+                class="--input_upload" />
+              </div>
+              <div class="upload_item_container">
+                <label class="--label_upload">Ingredient 4</label>
+                <input
+                  type="text"
+                  name="ingredient-4"
+                  placeholder="Quantity,Unit,Description"
+                  class="--input_upload"
+                />
+              </div>
+              <div class="upload_item_container">
+                <label class="--label_upload">Ingredient 5</label>
+                <input
+                  type="text"
+                  name="ingredient-5"
+                  placeholder="Quantity,Unit,Description"
+                  class="--input_upload"
+                />
+              </div>
+              <div class="upload_item_container">
+                <label class="--label_upload">Ingredient 6</label>
+                <input
+                  type="text"
+                  name="ingredient-6"
+                  placeholder="Quantity,Unit,Description"
+                  class="--input_upload"
+                />
+              </div>
+            </div>
+          </div>
+          <button class="btn_upload --btn_filled">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            <p class="--upload">UPLOAD</p>
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="bookmark_section">
+      <button class="__btn_close_bookmark_section">&times;</button>
+      <div class="meal_container meal_container_of_bookmark_section">
+        <label for="meal_container ">
+          <button class="unfavorite">
+            <i class="fa-solid fa-bookmark --add_color"></i>
+          </button>
+        </label>
+        <img
+          src="./assets/images/pizza.jpg"
+          alt="meal_pic"
+          class="__meal_img --clear_shadow"
+        />
+        <div class="meal_info">
+          <p class="__meal_name --add_color">PIZZA DIP</p>
+          <p class="__recipe_owner">SIMPLY RECIPES</p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <footer></footer>
+</html>

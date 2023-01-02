@@ -1,0 +1,13 @@
+@use "../layout/recipeListContainer";
+@use "../layout/recipeContainer";
+
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+
+.page_container {
+  margin-top: variables.$page_container_margin_top_mobile;
+  width: 100%;
+  height: variables.$page_container_height_mobile;
+  background-color: variables.$color_main_container;
+  @include mixins.flex-center("", "");
+}

@@ -1,0 +1,71 @@
+@use "../abstracts/mixins";
+@use "../abstracts/variables";
+
+button {
+  @include mixins.flex-center("", center);
+  justify-content: space-evenly;
+  border: none;
+  border-radius: variables.$btn_border_radius_mobile;
+  background-color: variables.$color_main_container;
+  align-self: center;
+  padding: 0px;
+}
+
+.page_left,
+.page_right {
+  width: variables.$btn_left_right_width_mobile;
+  height: variables.$btn_left_right_height_mobile;
+  margin: 0px variables.$btn_margin_left_right_mobile;
+  background-color: variables.$color_ingredient;
+}
+
+.__btn_decrease,
+.__btn_increase {
+  border: solid 1px variables.$color_gradient_body_end;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+
+  .--minus,
+  .--plus {
+    font-size: 5px;
+    align-self: center;
+  }
+}
+
+.__btn_bookmark {
+  font-size: variables.$btn_bookmark_font_size_mobile;
+  padding: variables.$btn_bookmark_padding_mobile;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.--btn_filled {
+  font-family: FontAwesome, ‘Helvetica Neue’, Helvetica, Arial, sans-serif;
+  @include mixins.linear-gradient();
+  color: white;
+}
+
+.__btn_instruction {
+  width: variables.$btn_instruction_width_mobile;
+  height: variables.$btn_instruction_height_mobile;
+  margin-bottom: variables.$btn_instruction_margin_bottom_mobile;
+  font-size: variables.$btn_instruction_font_size_mobile;
+  padding: variables.$btn_instruction_padding_mobile;
+  border-radius: variables.$btn_instruction_border_radius_mobile;
+  .--direction {
+    margin-right: variables.$btn_instruction_text_margin_right_mobile;
+  }
+}
+
+.__btn_close_recipe_data {
+  margin-right: -85vw;
+  margin-top: 1vh;
+}
+
+.btn_upload {
+  margin: variables.$btn_upload_margin_mobile auto;
+  height: variables.$btn_upload_hight_mobile;
+  width: variables.$btn_upload_width_mobile;
+  @include mixins.flex-center(row, space-between);
+}

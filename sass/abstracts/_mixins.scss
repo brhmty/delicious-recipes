@@ -1,0 +1,38 @@
+@use "./variables";
+
+@mixin base-width-height {
+  width: variables.$base_width;
+  height: variables.$base_height;
+}
+
+@mixin center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin center-horizontally {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin center-horizontally-rotate($rotate) {
+  left: 50%;
+  transform: translateX(-50%) rotate($rotate);
+}
+
+@mixin flex-center($flex-direction: row, $align-items: "") {
+  display: flex;
+  flex-direction: $flex-direction;
+  align-items: $align-items;
+}
+
+@mixin linear-gradient($opacity: "") {
+  opacity: $opacity;
+  background: linear-gradient(
+    to right bottom,
+    variables.$color_gradient_body_start,
+    variables.$color_gradient_body_end
+  );
+}

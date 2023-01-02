@@ -1,0 +1,48 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+
+.recipe_list_container,
+.recipe_container {
+  height: variables.$page_container_height_mobile;
+}
+
+.recipe_list_container {
+  position: relative;
+  flex-basis: variables.$recipe_list_container_width_mobile;
+}
+.meal_container {
+  @include mixins.flex-center("", center);
+  justify-content: space-evenly;
+  height: variables.$meal_container_height_mobile;
+  .__meal_img {
+    width: variables.$meal_img_width_height_mobile;
+    height: variables.$meal_img_width_height_mobile;
+    @include mixins.linear-gradient(variables.$img_shadow_opacity);
+    border-radius: 50%;
+  }
+  .meal_info {
+    display: inline-block;
+    width: variables.$meal_info_width_mobile;
+    .__meal_name,
+    .__recipe_owner {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .__meal_name {
+      font-size: variables.$meal_name_font_size_mobile;
+    }
+    .__recipe_owner {
+      font-size: variables.$recipe_owner_font_size_mobile;
+    }
+  }
+}
+
+.btn_pagination_container {
+  position: absolute;
+  width: 100%;
+  height: variables.$btn_pagination_container_height_mobile;
+  display: inline-flex;
+  justify-content: space-between;
+  bottom: variables.$footer_bottom_position_mobile;
+}

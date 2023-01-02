@@ -1,0 +1,39 @@
+@use "../abstracts/variables";
+
+.__add_recipe,
+.__bookmark {
+  font-size: variables.$bookmark_add_recipe_font_size_mobile;
+  align-self: center;
+  margin-left: variables.$add_recipe_bookmark_margin_left_mobile;
+}
+
+.__page,
+.__page_number_right,
+.--arrow {
+  font-size: variables.$btn_writings_font_size_mobile;
+}
+
+.__cooking_time_icon,
+.__cooking_time_number,
+.__minute_text {
+  font-size: variables.$cooking_writings_font_size_mobile;
+}
+
+.__number_of_serving_icon,
+.__number_of_serving,
+.__servings_text {
+  font-size: variables.$serving_writings_font_size_mobile;
+}
+
+.--add_color {
+  color: variables.$color_gradient_body_end;
+}
+
+.--label_upload {
+  font-size: variables.$label_upload_font_size_mobile;
+  margin-right: variables.$label_upload_margin_right_mobile;
+}
+
+.--upload {
+  font-size: variables.$upload_font_size_mobile;
+}

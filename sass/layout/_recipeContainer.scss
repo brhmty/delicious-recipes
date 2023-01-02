@@ -1,0 +1,108 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+
+.serving_container,
+.number_of_serving_container,
+.cooking_time_container,
+.btn_number_of_serving_container,
+.btn_bookmark_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.recipe_container {
+  flex-basis: variables.$recipe_container_width_mobile;
+  .__empty_page_message {
+    margin: variables.$empty_page_message_margin_mobile;
+    display: none;
+  }
+  .img_container {
+    position: relative;
+    width: 100%;
+    height: variables.$img_container_height_mobile;
+    .__img_big {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .__img_shadow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0px;
+      @include mixins.linear-gradient(variables.$img_shadow_opacity);
+      z-index: 1;
+    }
+    .__meal_name_tag {
+      position: absolute;
+      width: 50%;
+      height: variables.$meal_name_tag_height_mobile;
+      @include mixins.linear-gradient();
+      bottom: 0px;
+      margin-bottom: variables.$meal_name_tag_margin_bottom_mobile;
+      @include mixins.center-horizontally-rotate(
+        variables.$meal_name_tag_margin_rotate_deg_mobile
+      );
+      z-index: 2;
+    }
+  }
+  .serving_container {
+    margin-top: variables.$serving_container_margin_top_mobile;
+    .cooking_time_container {
+      width: variables.$cooking_time_container_width_mobile;
+    }
+    .number_of_serving_container {
+      width: variables.$number_of_serving_container_width_mobile;
+
+      .btn_number_of_serving_container {
+        .__btn_increase {
+          margin-left: variables.$btn_increase_margin_left_mobile;
+        }
+      }
+    }
+
+    .btn_bookmark_container {
+      margin-right: variables.$btn_bookmark_container_margin_right;
+    }
+  }
+
+  .ingredient_container {
+    width: 100%;
+    height: variables.$ingredient_container_height_mobile;
+    background-color: variables.$color_ingredient;
+    overflow-y: scroll;
+    .__ingredient_heading {
+      text-align: center;
+      padding-top: variables.$ingredient_heading_padding_top_mobile;
+    }
+    .ingredient_info_container {
+      display: flex;
+      align-items: center;
+      height: variables.$ingredient_info_container_height_mobile;
+      font-size: variables.$ingredient_info_container_font_size_mobile;
+      .--check_icon {
+        margin-left: variables.$check_icon_margin_left_mobile;
+      }
+      .__ingredient {
+        margin-left: variables.$ingredient_margin_left_mobile;
+      }
+    }
+  }
+
+  .cooking_instruction_container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: variables.$color_main_container;
+    bottom: variables.$footer_bottom_position_mobile;
+    .__instruction_heading {
+      text-align: center;
+      padding-top: variables.$instruction_heading_padding_top_mobile;
+    }
+    .__instruction_info {
+      text-align: center;
+      margin-top: variables.$instruction_info_margin_top_mobile;
+    }
+  }
+}

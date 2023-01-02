@@ -1,0 +1,16 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+
+body {
+  position: relative;
+  @include mixins.base-width-height;
+  margin: 0px;
+  background-color: variables.$color_main_container;
+  // overflow: hidden;
+}
+
+.main {
+  @include mixins.base-width-height;
+  @include mixins.center;
+  background-color: variables.$color_main_container;
+}

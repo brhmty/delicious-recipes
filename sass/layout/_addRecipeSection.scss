@@ -1,0 +1,42 @@
+@use "../abstracts/mixins";
+@use "../abstracts/variables";
+
+.add_recipe_section {
+  display: none;
+  position: absolute;
+  top: 0vh;
+  width: variables.$base_width;
+  height: variables.$base_height;
+  backdrop-filter: blur(
+    variables.$add_recipe_section_backdrop_filter_blur_mobile
+  );
+  z-index: 4;
+
+  .add_recipe_container {
+    width: 90vw;
+    height: variables.$add_recipe_container_height_mobile;
+    border-radius: variables.$add_recipe_border_radius_mobile;
+    position: sticky;
+    left: 5vw;
+    top: variables.$add_recipe_container_top_mobile;
+    background-color: white;
+    @include mixins.flex-center(column, space-between);
+    .upload_form_container {
+      @include mixins.flex-center;
+      width: 100%;
+      .upload_container,
+      .upload__column {
+        margin: 0 5vw;
+        flex-basis: 50%;
+        @include mixins.flex-center(column, space-between);
+      }
+    }
+  }
+}
+
+.upload_item_container {
+  @include mixins.flex-center(row, center);
+  justify-content: space-between;
+  white-space: nowrap;
+  margin-top: 1vh;
+}

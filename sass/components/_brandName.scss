@@ -1,0 +1,12 @@
+@use "../abstracts/variables";
+
+.__company_name {
+  font-family: a_note, sans-serif;
+  font-size: variables.$company_name_font_size_mobile;
+  width: variables.$company_name_width_mobile;
+  margin-left: variables.$company_name_margin_left_mobile;
+  color: variables.$color_text_all;
+
+  white-space: nowrap;
+  align-self: center;
+}

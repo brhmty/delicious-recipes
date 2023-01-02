@@ -1,0 +1,22 @@
+@use "../abstracts/mixins";
+@use "../abstracts/variables";
+
+.bar_container {
+  @include mixins.flex-center(column, center);
+  width: 100vw;
+  height: 100vh;
+  white-space: nowrap;
+  z-index: 4;
+  @include mixins.linear-gradient;
+  position: absolute;
+  top: 0vh;
+
+  .add_recipe,
+  .bookmark {
+    @include mixins.flex-center("", center);
+    width: variables.$add_recipe_bookmark_width_mobile;
+    height: variables.$add_recipe_bookmark_height_mobile;
+    margin-top: variables.$add_recipe_bookmark_margin_top_mobile;
+  }
+  display: none;
+}

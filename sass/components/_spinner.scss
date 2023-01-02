@@ -1,0 +1,23 @@
+@use "../abstracts/mixins";
+@use "../abstracts/variables";
+
+.spinner {
+  @include mixins.flex-center;
+  justify-content: center;
+  margin-top: 5vh;
+  font-size: variables.$spinner_font_size;
+  animation-name: spinner_spin;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  display: none;
+}
+
+@keyframes spinner_spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

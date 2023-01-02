@@ -1,0 +1,16 @@
+@use "../abstracts/variables";
+
+input {
+  width: variables.$input_width_mobile;
+  border-radius: variables.$input_border_radius_mobile;
+  line-height: variables.$input_line_height_mobile;
+  border: none;
+}
+
+.--input_upload {
+  width: variables.$input_upload_width_mobile;
+  border: solid 1px black;
+  &::placeholder {
+    color: transparent;
+  }
+}
