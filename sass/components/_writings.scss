@@ -11,6 +11,7 @@
 .__page_number_right,
 .--arrow {
   font-size: variables.$btn_writings_font_size_mobile;
+  margin: 0 variables.$btn_writings_margin_left_right_mobile;
 }
 
 .__cooking_time_icon,
@@ -29,6 +30,10 @@
   color: variables.$color_gradient_body_end;
 }
 
+.--direction {
+  margin-right: variables.$btn_instruction_text_margin_right_mobile;
+}
+
 .--label_upload {
   font-size: variables.$label_upload_font_size_mobile;
   margin-right: variables.$label_upload_margin_right_mobile;
@@ -36,4 +41,19 @@
 
 .--upload {
   font-size: variables.$upload_font_size_mobile;
+}
+
+.--bookmark_section_message {
+  font-size: 0.8em;
+}
+
+.__instruction_heading {
+  text-align: center;
+  padding-top: variables.$instruction_heading_padding_top_mobile;
+}
+
+.__instruction_info {
+  text-align: center;
+  margin-top: variables.$instruction_info_margin_top_mobile;
+  padding-right: variables.$instruction_info_padding_right_mobile;
 }

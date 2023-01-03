@@ -116,7 +116,7 @@ nav .navigation_bar i {
 }
 .meal_container .meal_info {
   display: inline-block;
-  width: 11vh;
+  width: 15vw;
 }
 .meal_container .meal_info .__meal_name,
 .meal_container .meal_info .__recipe_owner {
@@ -130,12 +130,18 @@ nav .navigation_bar i {
 .meal_container .meal_info .__recipe_owner {
   font-size: 0.5em;
 }
+.meal_container .meal_user {
+  font-size: 0.8em;
+  display: none;
+}
 
 .btn_pagination_container {
   position: absolute;
   width: 100%;
-  height: 7vh;
-  display: inline-flex;
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   bottom: 1vh;
 }
@@ -191,18 +197,31 @@ nav .navigation_bar i {
 }
 .recipe_container .serving_container {
   margin-top: 3vh;
+  height: 5vh;
+  display: flex;
 }
 .recipe_container .serving_container .cooking_time_container {
-  width: 20vw;
+  width: 33%;
+  align-self: center;
 }
 .recipe_container .serving_container .number_of_serving_container {
-  width: 25vw;
+  width: 40%;
+  align-self: center;
 }
-.recipe_container .serving_container .number_of_serving_container .btn_number_of_serving_container .__btn_increase {
-  margin-left: 0.5vw;
+.recipe_container .serving_container .number_of_serving_container .btn_number_of_serving_container {
+  width: 25%;
+  align-self: center;
+  justify-content: space-between;
 }
 .recipe_container .serving_container .btn_bookmark_container {
+  width: 8vw;
   margin-right: 2vw;
+}
+.recipe_container .serving_container .btn_bookmark_container .serving_container_user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 0.7em;
 }
 .recipe_container .ingredient_container {
   width: 100%;
@@ -227,19 +246,14 @@ nav .navigation_bar i {
   margin-left: 2vw;
 }
 .recipe_container .cooking_instruction_container {
+  box-sizing: border-box;
   position: absolute;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   background-color: #f9f5f3;
   bottom: 1vh;
-}
-.recipe_container .cooking_instruction_container .__instruction_heading {
-  text-align: center;
-  padding-top: 1vh;
-}
-.recipe_container .cooking_instruction_container .__instruction_info {
-  text-align: center;
-  margin-top: 0vh;
 }
 
 .page_container {
@@ -309,6 +323,17 @@ nav .navigation_bar i {
   overflow-y: scroll;
   display: none;
 }
+.bookmark_section .bookmark_section_exclamation_container {
+  width: 100%;
+  height: 20%;
+  position: absolute;
+  top: 10vh;
+  display: flex;
+  flex-direction: "";
+  align-items: center;
+  justify-content: space-evenly;
+  display: none;
+}
 .bookmark_section .__btn_close_bookmark_section {
   position: absolute;
   right: 2vw;
@@ -322,7 +347,7 @@ nav .navigation_bar i {
 .__company_name {
   font-family: a_note, sans-serif;
   font-size: 4vw;
-  width: 10vw;
+  width: 20vw;
   margin-left: 3px;
   color: #333333;
   white-space: nowrap;
@@ -367,6 +392,7 @@ input {
 .__page_number_right,
 .--arrow {
   font-size: 0.9em;
+  margin: 0 0.4vw;
 }
 
 .__cooking_time_icon,
@@ -378,11 +404,15 @@ input {
 .__number_of_serving_icon,
 .__number_of_serving,
 .__servings_text {
-  font-size: 0.55em;
+  font-size: 0.6em;
 }
 
 .--add_color {
   color: #f48982;
+}
+
+.--direction {
+  margin-right: 1vw;
 }
 
 .--label_upload {
@@ -392,6 +422,21 @@ input {
 
 .--upload {
   font-size: 0.8em;
+}
+
+.--bookmark_section_message {
+  font-size: 0.8em;
+}
+
+.__instruction_heading {
+  text-align: center;
+  padding-top: 1vh;
+}
+
+.__instruction_info {
+  text-align: center;
+  margin-top: 0vh;
+  padding-right: 1vw;
 }
 
 button {
@@ -408,17 +453,22 @@ button {
 
 .page_left,
 .page_right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   width: 15vw;
   height: 3vh;
-  margin: 0px 2vh;
+  margin: 0px 2vw;
+  font-size: 0.4em;
+  font-weight: bold;
   background-color: #f2efee;
 }
 
 .__btn_decrease,
 .__btn_increase {
   border: solid 1px #f48982;
-  width: 13px;
-  height: 13px;
+  width: 2.5vw;
+  height: 2.5vw;
   border-radius: 50%;
 }
 .__btn_decrease .--minus,
@@ -445,14 +495,9 @@ button {
 
 .__btn_instruction {
   width: 30vw;
-  height: 4vh;
-  margin-bottom: 2vh;
+  height: 5vh;
   font-size: 0.5em;
-  padding: 1.3em;
   border-radius: 40px;
-}
-.__btn_instruction .--direction {
-  margin-right: 1vw;
 }
 
 .__btn_close_recipe_data {

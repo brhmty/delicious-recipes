@@ -13,17 +13,20 @@ button {
 
 .page_left,
 .page_right {
+  @include mixins.flex-center(row, center);
   width: variables.$btn_left_right_width_mobile;
   height: variables.$btn_left_right_height_mobile;
   margin: 0px variables.$btn_margin_left_right_mobile;
+  font-size: variables.$btn_left_right_font_size_mobile;
+  font-weight: bold;
   background-color: variables.$color_ingredient;
 }
 
 .__btn_decrease,
 .__btn_increase {
   border: solid 1px variables.$color_gradient_body_end;
-  width: 13px;
-  height: 13px;
+  width: variables.$btn_decrease_increase_height_width_mobile;
+  height: variables.$btn_decrease_increase_height_width_mobile;
   border-radius: 50%;
 
   .--minus,
@@ -49,13 +52,8 @@ button {
 .__btn_instruction {
   width: variables.$btn_instruction_width_mobile;
   height: variables.$btn_instruction_height_mobile;
-  margin-bottom: variables.$btn_instruction_margin_bottom_mobile;
   font-size: variables.$btn_instruction_font_size_mobile;
-  padding: variables.$btn_instruction_padding_mobile;
   border-radius: variables.$btn_instruction_border_radius_mobile;
-  .--direction {
-    margin-right: variables.$btn_instruction_text_margin_right_mobile;
-  }
 }
 
 .__btn_close_recipe_data {

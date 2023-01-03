@@ -36,13 +36,17 @@
       font-size: variables.$recipe_owner_font_size_mobile;
     }
   }
+  .meal_user {
+    font-size: variables.$meal_user_font_size_mobile;
+    display: none;
+  }
 }
 
 .btn_pagination_container {
   position: absolute;
   width: 100%;
   height: variables.$btn_pagination_container_height_mobile;
-  display: inline-flex;
+  @include mixins.flex-center(row, center);
   justify-content: space-between;
   bottom: variables.$footer_bottom_position_mobile;
 }

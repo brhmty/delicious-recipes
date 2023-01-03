@@ -11,10 +11,20 @@
   overflow-y: scroll;
   display: none;
 
+  .bookmark_section_exclamation_container {
+    width: 100%;
+    height: variables.$bookmark_section_exclamation_container_height_mobile;
+    position: absolute;
+    top: variables.$bookmark_section_exclamation_container_top_mobile;
+    @include mixins.flex-center("", center);
+    justify-content: space-evenly;
+    display: none;
+  }
+
   .__btn_close_bookmark_section {
     position: absolute;
-    right: 2vw;
-    font-size: 2em;
+    right: variables.$btn_close_bookmark_section_right_mobile;
+    font-size: variables.$btn_close_bookmark_section_font_size;
   }
 
   .--clear_shadow {

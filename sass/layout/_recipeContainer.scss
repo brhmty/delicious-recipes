@@ -49,21 +49,31 @@
   }
   .serving_container {
     margin-top: variables.$serving_container_margin_top_mobile;
+    height: variables.$serving_container_height_mobile;
+    display: flex;
     .cooking_time_container {
       width: variables.$cooking_time_container_width_mobile;
+      align-self: center;
     }
     .number_of_serving_container {
       width: variables.$number_of_serving_container_width_mobile;
+      align-self: center;
 
       .btn_number_of_serving_container {
-        .__btn_increase {
-          margin-left: variables.$btn_increase_margin_left_mobile;
-        }
+        width: 25%;
+        align-self: center;
+        justify-content: space-between;
       }
     }
 
     .btn_bookmark_container {
+      width: variables.$btn_bookmark_container_width_mobile;
       margin-right: variables.$btn_bookmark_container_margin_right;
+
+      .serving_container_user {
+        @include mixins.flex-center(row, center);
+        font-size: variables.$serving_container_user_font_size_mobile;
+      }
     }
   }
 
@@ -91,18 +101,11 @@
   }
 
   .cooking_instruction_container {
+    box-sizing: border-box;
     position: absolute;
-    display: flex;
-    flex-direction: column;
+    @include mixins.flex-center(column, center);
+    justify-content: space-around;
     background-color: variables.$color_main_container;
     bottom: variables.$footer_bottom_position_mobile;
-    .__instruction_heading {
-      text-align: center;
-      padding-top: variables.$instruction_heading_padding_top_mobile;
-    }
-    .__instruction_info {
-      text-align: center;
-      margin-top: variables.$instruction_info_margin_top_mobile;
-    }
   }
 }

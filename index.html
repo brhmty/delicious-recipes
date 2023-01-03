@@ -55,6 +55,9 @@
                 <p class="__meal_name --add_color">PIZZA DIP</p>
                 <p class="__recipe_owner">SIMPLY RECIPES</p>
               </div>
+              <div class="meal_user">
+                <i class="fa-regular fa-user --add_color"></i>
+              </div>
             </div>
             <div class="btn_pagination_container">
               <button class="page_left">
@@ -106,15 +109,22 @@
               <p class="__number_of_serving">4</p>
               <p class="__servings_text">SERVINGS</p>
               <div class="btn_number_of_serving_container">
-                <button class="__btn_decrease --add_color">
-                  <i class="fa-solid fa-minus --minus"></i>
-                </button>
-                <button class="__btn_increase --add_color">
-                  <i class="fa-solid fa-plus --plus"></i>
-                </button>
+                <div class="btn_number_decrease">
+                  <button class="__btn_decrease --add_color">
+                    <i class="fa-solid fa-minus --minus"></i>
+                  </button>
+                </div>
+                <div class="btn_number_increase">
+                  <button class="__btn_increase --add_color">
+                    <i class="fa-solid fa-plus --plus"></i>
+                  </button>
+                </div>
               </div>
             </div>
             <div class="btn_bookmark_container">
+              <div class="serving_container_user">
+                <i class="fa-regular fa-user --add_color"></i>
+              </div>
               <button class="__btn_bookmark --btn_filled">
                 <i class="fa-regular fa-bookmark"></i>
               </button>
@@ -292,6 +302,14 @@
       </div>
     </div>
     <div class="bookmark_section">
+      <div class="bookmark_section_exclamation_container">
+        <label for="bookmark_section_alert_message"
+          ><i class="fa-solid fa-triangle-exclamation --add_color"></i
+        ></label>
+        <p class="bookmark_section_alert_message --bookmark_section_message">
+          No bookmarks yet. Find a nice recipe and bookmark it
+        </p>
+      </div>
       <button class="__btn_close_bookmark_section">&times;</button>
       <div class="meal_container meal_container_of_bookmark_section">
         <label for="meal_container ">
