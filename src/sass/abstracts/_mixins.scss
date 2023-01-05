@@ -1,4 +1,4 @@
-@use "./variables";
+@use "../abstracts/variables";
 
 @mixin base-width-height {
   width: variables.$base_width;

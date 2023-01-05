@@ -4,7 +4,7 @@
     <title></title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./src/css/styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -12,7 +12,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <script src=""></script>
   </head>
   <body>
     <div class="main_container">
@@ -20,7 +19,7 @@
         <a class="company_name_icon_a_container" href="index.html">
           <label for="__company_name">
             <img
-              src="./assets/logo/main_logo.svg"
+              src="./src/assets/logo/main_logo.svg"
               alt="company_logo"
               class="__brand_logo"
             />
@@ -45,20 +44,21 @@
             <i class="fa-solid fa-spinner"></i>
           </div>
           <div class="recipe_list">
-            <div class="meal_container">
-              <img
-                src="./assets/images/pizza.jpg"
-                alt="meal_pic"
-                class="__meal_img"
-              />
-              <div class="meal_info">
-                <p class="__meal_name --add_color">PIZZA DIP</p>
-                <p class="__recipe_owner">SIMPLY RECIPES</p>
-              </div>
-              <div class="meal_user">
-                <i class="fa-regular fa-user --add_color"></i>
-              </div>
-            </div>
+            <a href="" class="meal_href">
+              <div class="meal_container">
+                <img
+                  src="./src/assets/images/pizza.jpg"
+                  alt="meal_pic"
+                  class="__meal_img"
+                />
+                <div class="meal_info">
+                  <p class="__meal_name --add_color">PIZZA DIP</p>
+                  <p class="__recipe_owner">SIMPLY RECIPES</p>
+                </div>
+                <div class="meal_user">
+                  <i class="fa-regular fa-user --add_color"></i>
+                </div></div
+            ></a>
             <div class="btn_pagination_container">
               <button class="page_left">
                 <p class="__arrow_left --arrow">
@@ -85,58 +85,64 @@
             <i class="fa-regular fa-face-smile --add_color"></i>
             Start by searching for a recipe or an ingredient. Have fun!
           </p>
-          <div class="img_container">
-            <img
-              class="__img_big"
-              src="./assets/images/pizza.jpg"
-              alt="meal_image"
-            />
-            <div class="__img_shadow"></div>
-            <div class="__meal_name_tag"></div>
-          </div>
-          <div class="serving_container">
-            <div class="cooking_time_container">
-              <p class="__cooking_time_icon">
-                <i class="fa-regular fa-clock --add_color"></i>
-              </p>
-              <p class="__cooking_time_number">100</p>
-              <p class="__minute_text">MINUTES</p>
-            </div>
-            <div class="number_of_serving_container">
-              <p class="__number_of_serving_icon">
-                <i class="fa-solid fa-user-group --add_color"></i>
-              </p>
-              <p class="__number_of_serving">4</p>
-              <p class="__servings_text">SERVINGS</p>
-              <div class="btn_number_of_serving_container">
-                <div class="btn_number_decrease">
-                  <button class="__btn_decrease --add_color">
-                    <i class="fa-solid fa-minus --minus"></i>
-                  </button>
-                </div>
-                <div class="btn_number_increase">
-                  <button class="__btn_increase --add_color">
-                    <i class="fa-solid fa-plus --plus"></i>
-                  </button>
-                </div>
+          <div class="recipe_container_active">
+            <div class="img_container">
+              <img
+                class="__img_big"
+                src="./src/assets/images/pizza.jpg"
+                alt="meal_image"
+              />
+              <div class="__img_shadow"></div>
+              <div class="meal_name_tag">
+                <span class="__meal_name_tag"></span>
               </div>
             </div>
-            <div class="btn_bookmark_container">
-              <div class="serving_container_user">
-                <i class="fa-regular fa-user --add_color"></i>
+            <div class="serving_container">
+              <div class="cooking_time_container">
+                <p class="__cooking_time_icon">
+                  <i class="fa-regular fa-clock --add_color"></i>
+                </p>
+                <p class="__cooking_time_number">100</p>
+                <p class="__minute_text">MINUTES</p>
               </div>
-              <button class="__btn_bookmark --btn_filled">
-                <i class="fa-regular fa-bookmark"></i>
-              </button>
+              <div class="number_of_serving_container">
+                <p class="__number_of_serving_icon">
+                  <i class="fa-solid fa-user-group --add_color"></i>
+                </p>
+                <p class="__number_of_serving">4</p>
+                <p class="__servings_text">SERVINGS</p>
+                <div class="btn_number_of_serving_container">
+                  <div class="btn_number_decrease">
+                    <button class="__btn_decrease --add_color">
+                      <i class="fa-solid fa-minus --minus"></i>
+                    </button>
+                  </div>
+                  <div class="btn_number_increase">
+                    <button class="__btn_increase --add_color">
+                      <i class="fa-solid fa-plus --plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="btn_bookmark_container">
+                <div class="serving_container_user">
+                  <i class="fa-regular fa-user --add_color"></i>
+                </div>
+                <button class="__btn_bookmark --btn_filled">
+                  <i class="fa-regular fa-bookmark"></i>
+                </button>
+              </div>
             </div>
-          </div>
-          <div class="ingredient_container">
-            <h5 class="__ingredient_heading --add_color">RECIPE INGREDIENTS</h5>
-            <div class="ingredient_info_container">
-              <label for="__ingredient" class="--check_icon"
-                ><i class="fa-solid fa-check --add_color"></i
-              ></label>
-              <p class="__ingredient">250 g dried medium egg noodles</p>
+            <div class="ingredient_container">
+              <h5 class="__ingredient_heading --add_color">
+                RECIPE INGREDIENTS
+              </h5>
+              <div class="ingredient_info_container">
+                <label for="__ingredient" class="--check_icon"
+                  ><i class="fa-solid fa-check --add_color"></i
+                ></label>
+                <p class="__ingredient">250 g dried medium egg noodles</p>
+              </div>
             </div>
           </div>
           <div class="cooking_instruction_container">
@@ -318,7 +324,7 @@
           </button>
         </label>
         <img
-          src="./assets/images/pizza.jpg"
+          src="./src/assets/images/pizza.jpg"
           alt="meal_pic"
           class="__meal_img --clear_shadow"
         />
@@ -329,5 +335,5 @@
       </div>
     </div>
   </body>
-  <footer></footer>
+  <script type="module" src="./src/js/index.js"></script>
 </html>

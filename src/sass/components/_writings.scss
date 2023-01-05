@@ -1,4 +1,4 @@
-@use "../abstracts/variables";
+@use '../abstracts/variables';
 
 .__add_recipe,
 .__bookmark {
@@ -26,6 +26,10 @@
   font-size: variables.$serving_writings_font_size_mobile;
 }
 
+.__cook_name {
+  font-weight: bold;
+}
+
 .--add_color {
   color: variables.$color_gradient_body_end;
 }
@@ -44,7 +48,7 @@
 }
 
 .--bookmark_section_message {
-  font-size: 0.8em;
+  font-size: variables.$bookmark_section_message_mobile;
 }
 
 .__instruction_heading {

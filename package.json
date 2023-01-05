@@ -1,0 +1,27 @@
+{
+  "name": "delicious-food",
+  "version": "1.0.0",
+  "description": "recipe application",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brhmty/delicious-recipes.git"
+  },
+  "author": "ibrahim atay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brhmty/delicious-recipes/issues"
+  },
+  "homepage": "https://github.com/brhmty/delicious-recipes#readme",
+  "devDependencies": {
+    "parcel": "^2.8.2"
+  },
+  "dependencies": {
+    "core-js": "^3.27.1",
+    "regenerator-runtime": "^0.13.11"
+  }
+}

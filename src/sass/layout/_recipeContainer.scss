@@ -1,5 +1,5 @@
-@use "../abstracts/variables";
-@use "../abstracts/mixins";
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
 
 .serving_container,
 .number_of_serving_container,
@@ -14,6 +14,8 @@
   flex-basis: variables.$recipe_container_width_mobile;
   .__empty_page_message {
     margin: variables.$empty_page_message_margin_mobile;
+  }
+  .recipe_container_active {
     display: none;
   }
   .img_container {
@@ -23,7 +25,7 @@
     .__img_big {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      background-size: cover;
       z-index: 0;
     }
     .__img_shadow {
@@ -34,17 +36,25 @@
       @include mixins.linear-gradient(variables.$img_shadow_opacity);
       z-index: 1;
     }
-    .__meal_name_tag {
+    .meal_name_tag {
       position: absolute;
       width: 50%;
-      height: variables.$meal_name_tag_height_mobile;
-      @include mixins.linear-gradient();
-      bottom: 0px;
+      bottom: 0;
       margin-bottom: variables.$meal_name_tag_margin_bottom_mobile;
       @include mixins.center-horizontally-rotate(
         variables.$meal_name_tag_margin_rotate_deg_mobile
       );
+      text-align: center;
       z-index: 2;
+
+      .__meal_name_tag {
+        box-decoration-break: clone;
+        @include mixins.linear-gradient();
+        font-size: variables.$meal_name_tag_font_size_mobile;
+        text-transform: uppercase;
+        padding: variables.$meal_name_tag_padding_y_mobile
+          variables.$meal_name_tag_padding_x_mobile;
+      }
     }
   }
   .serving_container {
@@ -73,6 +83,7 @@
       .serving_container_user {
         @include mixins.flex-center(row, center);
         font-size: variables.$serving_container_user_font_size_mobile;
+        display: none;
       }
     }
   }
@@ -91,6 +102,8 @@
       align-items: center;
       height: variables.$ingredient_info_container_height_mobile;
       font-size: variables.$ingredient_info_container_font_size_mobile;
+      padding: 0.8em 0.3em;
+      display: none;
       .--check_icon {
         margin-left: variables.$check_icon_margin_left_mobile;
       }

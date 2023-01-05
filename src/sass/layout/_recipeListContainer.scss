@@ -1,5 +1,5 @@
-@use "../abstracts/variables";
-@use "../abstracts/mixins";
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
 
 .recipe_list_container,
 .recipe_container {
@@ -9,11 +9,29 @@
 .recipe_list_container {
   position: relative;
   flex-basis: variables.$recipe_list_container_width_mobile;
+  .meal_href {
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      text-decoration: inherit;
+      color: inherit;
+    }
+  }
 }
+
 .meal_container {
-  @include mixins.flex-center("", center);
+  @include mixins.flex-center('', center);
   justify-content: space-evenly;
   height: variables.$meal_container_height_mobile;
+  &:hover {
+    background-color: variables.$color_ingredient;
+    img,
+    div {
+      margin-bottom: variables.$meal_container_hover_margin_mobile;
+    }
+  }
+  display: none;
   .__meal_img {
     width: variables.$meal_img_width_height_mobile;
     height: variables.$meal_img_width_height_mobile;
