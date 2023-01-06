@@ -90,8 +90,7 @@ nav .navigation_bar i {
   color: black;
 }
 
-.recipe_list_container,
-.recipe_container {
+.recipe_list_container {
   height: 192vh;
 }
 

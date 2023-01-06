@@ -1,5 +1,6 @@
 import { async } from 'regenerator-runtime';
 import { API_PATH } from './utilities/configuration';
+import * as config from './utilities/configuration';
 import { getJSON } from './utilities/helpers';
 
 export const state = {
@@ -8,14 +9,16 @@ export const state = {
   },
   recipe: {},
   recipeLength: 0,
-  totalPage: 0,
-  totalItem: 10,
-  itemStart: 0,
-  itemEnd: 1,
-  currentPageIncrease: 1,
-  currentPageDecrease: 0,
-  btnIncreaseVisibility: 'hidden',
-  btnDecreaseVisibility: 'hidden',
+  currentHash: 0,
+  currentMealContainer: '',
+  totalPage: config.totalPage,
+  totalItem: config.totalItem,
+  itemStart: config.itemStart,
+  itemEnd: config.itemEnd,
+  currentPageIncrease: config.currentPageIncrease,
+  currentPageDecrease: config.currentPageDecrease,
+  btnIncreaseVisibility: config.btnIncreaseVisibility,
+  btnDecreaseVisibility: config.btnDecreaseVisibility,
 };
 
 export const loadRecipes = async function (query) {

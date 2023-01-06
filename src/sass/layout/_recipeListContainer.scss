@@ -1,8 +1,7 @@
 @use '../abstracts/variables';
 @use '../abstracts/mixins';
 
-.recipe_list_container,
-.recipe_container {
+.recipe_list_container {
   height: variables.$page_container_height_mobile;
 }
 

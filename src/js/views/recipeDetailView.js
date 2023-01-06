@@ -1,4 +1,5 @@
 import { removeCloneNodes } from '../utilities/helpers';
+import { color_ingredient } from '../utilities/configuration';
 
 class RecipeDetailView {
   #parentElement = document.querySelector('.recipe_container');
@@ -8,7 +9,6 @@ class RecipeDetailView {
     this.#data = data;
 
     const recipeContainerActive = this.#parentElement.querySelector('.recipe_container_active');
-    recipeContainerActive.style.display = 'none';
 
     const emptyPageMessage = this.#parentElement.querySelector('.__empty_page_message');
     const bigImg = this.#parentElement.querySelector('.__img_big');
@@ -27,9 +27,6 @@ class RecipeDetailView {
     emptyPageMessage.style.display = 'none';
     recipeContainerActive.style.display = 'block';
 
-    /*  console.log(data.id);
-    console.log(document.querySelectorAll('.meal_container')); */
-
     removeCloneNodes(document, '.clone_ingredient');
 
     this.#data.ingredients.map(item => {
@@ -43,8 +40,20 @@ class RecipeDetailView {
     });
   }
 
+  hideRender() {
+    this.#parentElement.querySelector('.recipe_container_active').style.display = 'none';
+  }
+
   addHandlerRender(handler) {
     window.addEventListener('hashchange', handler);
+  }
+
+  setBackgroundColor(item) {
+    item.querySelector('.meal_container').style.backgroundColor = color_ingredient;
+  }
+
+  removeBackgroundColor(item) {
+    item.querySelector('.meal_container').style.backgroundColor = '';
   }
 }
 

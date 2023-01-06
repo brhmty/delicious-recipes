@@ -1,4 +1,6 @@
 import { timeout_second } from './configuration';
+import * as config from './configuration';
+import * as model from '../model';
 
 const timeout = function (s) {
   return new Promise(function (_, reject) {
@@ -29,13 +31,20 @@ export function renderPaginationView(viewClass, modelState) {
   viewClass.render(modelState.currentPageIncrease, modelState.currentPageDecrease, modelState.btnIncreaseVisibility, modelState.btnDecreaseVisibility);
 }
 
+export function resetPaginationView(modelState) {
+  modelState.totalPage = config.totalPage;
+  modelState.totalItem = config.totalItem;
+  modelState.itemStart = config.itemStart;
+  modelState.itemEnd = config.itemEnd;
+  modelState.currentPageIncrease = config.currentPageIncrease;
+  modelState.currentPageDecrease = config.currentPageDecrease;
+  modelState.btnIncreaseVisibility = config.btnIncreaseVisibility;
+  modelState.btnDecreaseVisibility = config.btnDecreaseVisibility;
+}
+
 export function hidingSpinner(viewClass, parentElement) {
   viewClass.render(true, parentElement);
 }
-
-/* export function returnHash(windowObject) {
-  windowObject.location.hash.substring(1);
-} */
 
 export function removeCloneNodes(documentObject, className) {
   documentObject.querySelectorAll(className).forEach(el => el.remove());
@@ -43,4 +52,12 @@ export function removeCloneNodes(documentObject, className) {
 
 export function emptyRecipeList(recipeList) {
   recipeList.length = 0;
+}
+
+export function setCurrentMealContainer(documentObject, currentHash, classHref, classContainer) {
+  documentObject.querySelectorAll(classHref).forEach(item => {
+    if (item.href.split('#')[1] === currentHash) {
+      model.state.currentMealContainer = item;
+    }
+  });
 }

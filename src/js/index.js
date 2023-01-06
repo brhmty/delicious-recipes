@@ -1,8 +1,10 @@
 import * as model from './model';
 import { hidingSpinner } from './utilities/helpers';
 import { renderPaginationView } from './utilities/helpers';
+import { resetPaginationView } from './utilities/helpers';
 import { renderRecipeListView } from './utilities/helpers';
 import { emptyRecipeList } from './utilities/helpers';
+import { setCurrentMealContainer } from './utilities/helpers';
 import recipeListView from './views/recipeListView';
 import recipeDetailView from './views/recipeDetailView';
 import spinnerView from './views/spinnerView';
@@ -18,6 +20,10 @@ const showRecipeList = async function () {
     exclamationView.render(check, '.recipe_list_exclamation_container');
     //showing spinner
     spinnerView.render(check, parentElement);
+    //reset pagination
+    resetPaginationView(model.state);
+    //reset recipeListView
+    recipeListView.removeRender('.clone_meal');
 
     //filling recipeListView
     const query = searchView.getQuery();
@@ -26,10 +32,7 @@ const showRecipeList = async function () {
     const recipeLength = model.state.recipeLength;
 
     model.calcTotalPage(recipeLength);
-
-    recipeListView.removeRender('.clone_meal');
     renderRecipeListView(recipeListView, model.state.recipes.recipeList, recipeLength, model.state.itemStart, model.state.totalItem);
-
     renderPaginationView(paginationView, model.state);
 
     //hiding spinner
@@ -50,10 +53,18 @@ const showRecipe = async function () {
     exclamationView.render(check, '.recipe_container_exclamation_container');
     //showing spinner
     spinnerView.render(check, parentElement);
+    //hide showDetailREcipe
+    recipeDetailView.hideRender();
+    //removeBackgrounColor
+    if (model.state.currentMealContainer !== '') recipeDetailView.removeBackgroundColor(model.state.currentMealContainer);
 
     //taking current hash
-    const id = window.location.hash.substring(1);
+    model.state.currentHash = window.location.hash.substring(1);
+    const id = model.state.currentHash;
     if (id === '') return 'error';
+
+    setCurrentMealContainer(document, id, '.meal_href', '.meal_container');
+    recipeDetailView.setBackgroundColor(model.state.currentMealContainer);
 
     //showing detailed view
     await model.loadRecipe(id);
@@ -98,7 +109,6 @@ const btnDecrease = function () {
 
     model.state.itemStart -= model.state.totalItem;
     model.state.itemEnd = model.state.currentPageIncrease * model.state.totalItem;
-    console.log(model.state.itemEnd);
 
     recipeListView.removeRender('.clone_meal');
     renderRecipeListView(recipeListView, model.state.recipes.recipeList, model.state.recipeLength, model.state.itemStart, model.state.itemEnd);
