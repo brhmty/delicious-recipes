@@ -7,14 +7,24 @@ export const state = {
     recipeList: [],
   },
   recipe: {},
+  recipeLength: 0,
+  totalPage: 0,
+  totalItem: 10,
+  itemStart: 0,
+  itemEnd: 1,
+  currentPageIncrease: 1,
+  currentPageDecrease: 0,
+  btnIncreaseVisibility: 'hidden',
+  btnDecreaseVisibility: 'hidden',
 };
 
 export const loadRecipes = async function (query) {
   try {
     const data = await getJSON(`${API_PATH}?search=${query}`);
     let { recipes } = data.data;
+    state.recipeLength = recipes.length;
 
-    recipes.slice(0, 10).map(item => {
+    recipes.forEach(item => {
       state.recipes.recipeList.push({
         id: item.id,
         title: item.title,
@@ -23,7 +33,7 @@ export const loadRecipes = async function (query) {
       });
     });
   } catch (err) {
-    alert(err);
+    throw err;
   }
 };
 
@@ -45,4 +55,11 @@ export const loadRecipe = async function (id) {
   } catch (err) {
     throw err;
   }
+};
+
+export const calcTotalPage = async function (recipeLength) {
+  const quotient = Math.floor(recipeLength / 10);
+
+  state.totalPage = recipeLength % 10 === 0 ? quotient : quotient + 1;
+  state.btnIncreaseVisibility = state.totalPage === 1 ? 'hidden' : 'visible';
 };

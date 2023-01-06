@@ -18,6 +18,13 @@
       color: inherit;
     }
   }
+  .recipe_list_exclamation_container {
+    @include mixins.flex-center('', center);
+    @include mixins.error(55%);
+    .fa-triangle-exclamation {
+      margin: 0 2vw;
+    }
+  }
 }
 
 .meal_container {

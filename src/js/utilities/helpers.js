@@ -20,10 +20,27 @@ export const getJSON = async function (url) {
   }
 };
 
-export function hidingSpinner(className, parentElement) {
-  className.render(true, parentElement);
+export function renderRecipeListView(viewClass, modelStateRecipeList, modelStateRecipeLength, itemStart, itemEnd) {
+  if (!modelStateRecipeList || (Array.isArray(modelStateRecipeList) && modelStateRecipeLength === 0)) throw 'error';
+  modelStateRecipeList.slice(itemStart, itemEnd).forEach(recipe => viewClass.render(recipe));
 }
 
-export function returnHash(windowObject) {
+export function renderPaginationView(viewClass, modelState) {
+  viewClass.render(modelState.currentPageIncrease, modelState.currentPageDecrease, modelState.btnIncreaseVisibility, modelState.btnDecreaseVisibility);
+}
+
+export function hidingSpinner(viewClass, parentElement) {
+  viewClass.render(true, parentElement);
+}
+
+/* export function returnHash(windowObject) {
   windowObject.location.hash.substring(1);
+} */
+
+export function removeCloneNodes(documentObject, className) {
+  documentObject.querySelectorAll(className).forEach(el => el.remove());
+}
+
+export function emptyRecipeList(recipeList) {
+  recipeList.length = 0;
 }

@@ -103,6 +103,20 @@ nav .navigation_bar i {
   text-decoration: inherit;
   color: inherit;
 }
+.recipe_list_container .recipe_list_exclamation_container {
+  display: flex;
+  flex-direction: "";
+  align-items: center;
+  width: 55%;
+  height: 10%;
+  position: absolute;
+  top: 5vh;
+  justify-content: space-between;
+  display: none;
+}
+.recipe_list_container .recipe_list_exclamation_container .fa-triangle-exclamation {
+  margin: 0 2vw;
+}
 
 .meal_container {
   display: flex;

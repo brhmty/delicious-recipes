@@ -1,3 +1,5 @@
+import { removeCloneNodes } from '../utilities/helpers';
+
 class RecipeDetailView {
   #parentElement = document.querySelector('.recipe_container');
   #data;
@@ -25,12 +27,15 @@ class RecipeDetailView {
     emptyPageMessage.style.display = 'none';
     recipeContainerActive.style.display = 'block';
 
-    document.querySelectorAll('.clone_ingredient_info_container').forEach(el => el.remove());
+    /*  console.log(data.id);
+    console.log(document.querySelectorAll('.meal_container')); */
+
+    removeCloneNodes(document, '.clone_ingredient');
 
     this.#data.ingredients.map(item => {
       const newIngredientInfoContainer = ingredientInfoContainer.cloneNode(true);
 
-      newIngredientInfoContainer.classList.toggle('clone_ingredient_info_container');
+      newIngredientInfoContainer.classList.toggle('clone_ingredient');
       newIngredientInfoContainer.querySelector('.__ingredient').textContent = `${item.quantity ?? ''} ${item.unit ?? ''} ${item.description ?? ''}`;
       newIngredientInfoContainer.style.display = 'flex';
 
