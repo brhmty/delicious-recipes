@@ -67,4 +67,5 @@
   @include mixins.flex-center(row, center);
   justify-content: space-between;
   bottom: variables.$footer_bottom_position_mobile;
+  display: none;
 }

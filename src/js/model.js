@@ -1,6 +1,6 @@
 import { async } from 'regenerator-runtime';
 import { API_PATH } from './utilities/configuration';
-import { returnHash } from './utilities/helpers';
+import { getJSON } from './utilities/helpers';
 
 export const state = {
   recipes: {
@@ -9,10 +9,9 @@ export const state = {
   recipe: {},
 };
 
-export const loadRecipes = async function () {
+export const loadRecipes = async function (query) {
   try {
-    const res = await fetch(`${API_PATH}?search=pizza`);
-    const data = await res.json();
+    const data = await getJSON(`${API_PATH}?search=${query}`);
     let { recipes } = data.data;
 
     recipes.slice(0, 10).map(item => {
@@ -30,11 +29,9 @@ export const loadRecipes = async function () {
 
 export const loadRecipe = async function (id) {
   try {
-    const res = await fetch(`${API_PATH}/${id}`);
-    if (!res.ok) throw new Error(`${data.message} (${res.status})`);
-    const data = await res.json();
-
+    const data = await getJSON(`${API_PATH}/${id}`);
     let { recipe } = data.data;
+
     state.recipe = {
       id: recipe.id,
       title: recipe.title,
@@ -46,6 +43,6 @@ export const loadRecipe = async function (id) {
       ingredients: recipe.ingredients,
     };
   } catch (err) {
-    alert(err);
+    throw err;
   }
 };

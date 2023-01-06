@@ -1,5 +1,5 @@
-@use "../abstracts/variables";
-@use "../abstracts/mixins";
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
 
 .bookmark_section {
   width: 100vw;
@@ -12,13 +12,8 @@
   display: none;
 
   .bookmark_section_exclamation_container {
-    width: 100%;
-    height: variables.$bookmark_section_exclamation_container_height_mobile;
-    position: absolute;
-    top: variables.$bookmark_section_exclamation_container_top_mobile;
-    @include mixins.flex-center("", center);
-    justify-content: space-evenly;
-    display: none;
+    @include mixins.flex-center('', center);
+    @include mixins.error;
   }
 
   .__btn_close_bookmark_section {

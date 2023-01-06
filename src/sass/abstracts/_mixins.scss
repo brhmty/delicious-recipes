@@ -1,4 +1,4 @@
-@use "../abstracts/variables";
+@use '../abstracts/variables';
 
 @mixin base-width-height {
   width: variables.$base_width;
@@ -22,17 +22,22 @@
   transform: translateX(-50%) rotate($rotate);
 }
 
-@mixin flex-center($flex-direction: row, $align-items: "") {
+@mixin flex-center($flex-direction: row, $align-items: '') {
   display: flex;
   flex-direction: $flex-direction;
   align-items: $align-items;
 }
 
-@mixin linear-gradient($opacity: "") {
+@mixin linear-gradient($opacity: '') {
   opacity: $opacity;
-  background: linear-gradient(
-    to right bottom,
-    variables.$color_gradient_body_start,
-    variables.$color_gradient_body_end
-  );
+  background: linear-gradient(to right bottom, variables.$color_gradient_body_start, variables.$color_gradient_body_end);
+}
+
+@mixin error($width: 100%) {
+  width: $width;
+  height: variables.$exclamation_container_height_mobile;
+  position: absolute;
+  top: variables.$exclamation_container_top_mobile;
+  justify-content: space-between;
+  display: none;
 }

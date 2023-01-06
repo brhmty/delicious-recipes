@@ -156,6 +156,7 @@ nav .navigation_bar i {
   align-items: center;
   justify-content: space-between;
   bottom: 1vh;
+  display: none;
 }
 
 .serving_container,
@@ -172,6 +173,20 @@ nav .navigation_bar i {
 }
 .recipe_container .__empty_page_message {
   margin: 6vh;
+}
+.recipe_container .recipe_container_exclamation_container {
+  display: flex;
+  flex-direction: "";
+  align-items: center;
+  width: 55%;
+  height: 10%;
+  position: absolute;
+  top: 5vh;
+  justify-content: space-between;
+  display: none;
+}
+.recipe_container .recipe_container_exclamation_container .fa-triangle-exclamation {
+  margin: 0 2vw;
 }
 .recipe_container .recipe_container_active {
   display: none;
@@ -344,14 +359,14 @@ nav .navigation_bar i {
   display: none;
 }
 .bookmark_section .bookmark_section_exclamation_container {
-  width: 100%;
-  height: 20%;
-  position: absolute;
-  top: 10vh;
   display: flex;
   flex-direction: "";
   align-items: center;
-  justify-content: space-evenly;
+  width: 100%;
+  height: 10%;
+  position: absolute;
+  top: 5vh;
+  justify-content: space-between;
   display: none;
 }
 .bookmark_section .__btn_close_bookmark_section {

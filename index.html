@@ -5,34 +5,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./src/css/styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
     <div class="main_container">
       <nav>
         <a class="company_name_icon_a_container" href="index.html">
           <label for="__company_name">
-            <img
-              src="./src/assets/logo/main_logo.svg"
-              alt="company_logo"
-              class="__brand_logo"
-            />
+            <img src="./src/assets/logo/main_logo.svg" alt="company_logo" class="__brand_logo" />
           </label>
           <h1 class="__company_name">Delicious Food</h1>
         </a>
         <form action="" class="navigation">
           <input type="text" class="searchbar" placeholder="Search..." />
-          <input
-            type="submit"
-            class="btn_submit --btn_filled"
-            value="&#xf002; SEARCH"
-          />
+          <input type="submit" class="btn_submit --btn_filled" value="&#xf002; SEARCH" />
         </form>
         <div class="navigation_bar">
           <i class="fa-solid fa-bars --add_color"></i>
@@ -46,11 +32,7 @@
           <div class="recipe_list">
             <a href="" class="meal_href">
               <div class="meal_container">
-                <img
-                  src="./src/assets/images/pizza.jpg"
-                  alt="meal_pic"
-                  class="__meal_img"
-                />
+                <img src="./src/assets/images/pizza.jpg" alt="meal_pic" class="__meal_img" />
                 <div class="meal_info">
                   <p class="__meal_name --add_color">PIZZA DIP</p>
                   <p class="__recipe_owner">SIMPLY RECIPES</p>
@@ -78,6 +60,10 @@
           </div>
         </section>
         <section class="recipe_container">
+          <div class="recipe_container_exclamation_container">
+            <label for="recipe_container_alert_message"><i class="fa-solid fa-triangle-exclamation --add_color"></i></label>
+            <p class="recipe_container_alert_message --bookmark_section_message">We could not find that recipe. Please try another one!</p>
+          </div>
           <div class="spinner">
             <i class="fa-solid fa-spinner"></i>
           </div>
@@ -87,11 +73,7 @@
           </p>
           <div class="recipe_container_active">
             <div class="img_container">
-              <img
-                class="__img_big"
-                src="./src/assets/images/pizza.jpg"
-                alt="meal_image"
-              />
+              <img class="__img_big" src="./src/assets/images/pizza.jpg" alt="meal_image" />
               <div class="__img_shadow"></div>
               <div class="meal_name_tag">
                 <span class="__meal_name_tag"></span>
@@ -134,43 +116,35 @@
               </div>
             </div>
             <div class="ingredient_container">
-              <h5 class="__ingredient_heading --add_color">
-                RECIPE INGREDIENTS
-              </h5>
+              <h5 class="__ingredient_heading --add_color">RECIPE INGREDIENTS</h5>
               <div class="ingredient_info_container">
-                <label for="__ingredient" class="--check_icon"
-                  ><i class="fa-solid fa-check --add_color"></i
-                ></label>
+                <label for="__ingredient" class="--check_icon"><i class="fa-solid fa-check --add_color"></i></label>
                 <p class="__ingredient">250 g dried medium egg noodles</p>
               </div>
             </div>
-          </div>
-          <div class="cooking_instruction_container">
-            <h5 class="__instruction_heading --add_color">HOW TO COOK IT</h5>
-            <p class="__instruction_info">
-              This recipe was carefully designed and tested by
-              <span class="__cook_name">Jamie Oliver</span>. Please check out
-              directions at their website.
-            </p>
-            <button class="__btn_instruction --btn_filled">
-              <p class="--direction">DIRECTIONS</p>
-              <i class="fa-solid fa-arrow-right"></i>
-            </button>
+
+            <div class="cooking_instruction_container">
+              <h5 class="__instruction_heading --add_color">HOW TO COOK IT</h5>
+              <p class="__instruction_info">
+                This recipe was carefully designed and tested by
+                <span class="__cook_name">Jamie Oliver</span>. Please check out directions at their website.
+              </p>
+              <button class="__btn_instruction --btn_filled">
+                <p class="--direction">DIRECTIONS</p>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
           </div>
         </section>
       </main>
     </div>
     <div class="bar_container">
       <div class="add_recipe">
-        <label class="__add_recipe" for="__add_recipe"
-          ><i class="fa-regular fa-pen-to-square --add_color"></i
-        ></label>
+        <label class="__add_recipe" for="__add_recipe"><i class="fa-regular fa-pen-to-square --add_color"></i></label>
         <h2 class="__add_recipe">ADD RECIPE</h2>
       </div>
       <div class="bookmark">
-        <label class="__bookmark" for="__bookmark"
-          ><i class="fa-regular fa-bookmark --add_color"></i
-        ></label>
+        <label class="__bookmark" for="__bookmark"><i class="fa-regular fa-bookmark --add_color"></i></label>
         <h2 class="__bookmark">BOOKMARKS</h2>
       </div>
     </div>
@@ -183,120 +157,54 @@
               <h3 class="--upload__heading">RECIPE DATA</h3>
               <div class="upload_item_container">
                 <label class="--label_upload">Title</label>
-                <input
-                  value=""
-                  required
-                  name="title"
-                  type="text"
-                  class="--input_upload"
-                />
+                <input value="" required name="title" type="text" class="--input_upload" />
               </div>
               <div class="upload_item_container">
                 <label class="--label_upload">URL</label>
-                <input
-                  value=""
-                  required
-                  name="sourceUrl"
-                  type="text"
-                  class="--input_upload"
-                />
+                <input value="" required name="sourceUrl" type="text" class="--input_upload" />
               </div>
               <div class="upload_item_container">
                 <label class="--label_upload">Image URL</label>
-                <input
-                  value=""
-                  required
-                  name="image"
-                  type="text"
-                  class="--input_upload"
-                />
+                <input value="" required name="image" type="text" class="--input_upload" />
               </div>
               <div class="upload_item_container">
                 <label class="--label_upload">Publisher</label>
-                <input
-                  value=""
-                  required
-                  name="publisher"
-                  type="text"
-                  class="--input_upload"
-                />
+                <input value="" required name="publisher" type="text" class="--input_upload" />
               </div>
               <div class="upload_item_container">
                 <label class="--label_upload">Prep time</label>
-                <input
-                  value=""
-                  required
-                  name="cookingTime"
-                  type="number"
-                  class="--input_upload"
-                />
+                <input value="" required name="cookingTime" type="number" class="--input_upload" />
               </div>
               <div class="upload_item_container">
                 <label class="--label_upload">Servings</label>
-                <input
-                  value=""
-                  required
-                  name="servings"
-                  type="number"
-                  class="--input_upload"
-                />
+                <input value="" required name="servings" type="number" class="--input_upload" />
               </div>
             </div>
             <div class="upload__column">
               <h3 class="--upload__heading">INGREDIENTS</h3>
               <div class="upload_item_container">
                 <label class="--label_upload">Ingredient 1</label>
-                <input
-                  value=""
-                  type="text"
-                  required
-                  name="ingredient-1"
-                  placeholder="Quantity,Unit,Description"
-                  class="--input_upload"
-                />
+                <input value="" type="text" required name="ingredient-1" placeholder="Quantity,Unit,Description" class="--input_upload" />
               </div>
               <div class="upload_item_container">
                 <label class="--label_upload">Ingredient 2</label>
-                <input
-                  value=""
-                  type="text"
-                  name="ingredient-2"
-                  placeholder="Quantity,Unit,Description"
-                  class="--input_upload"
-                />
+                <input value="" type="text" name="ingredient-2" placeholder="Quantity,Unit,Description" class="--input_upload" />
               </div>
               <div class="upload_item_container">
                 <label class="--label_upload">Ingredient 3</label>
-                <input value=""" type="text" name="ingredient-3"
-                placeholder="Format: 'Quantity,Unit,Description'"
-                class="--input_upload" />
+                <input value=""" type="text" name="ingredient-3" placeholder="Format: 'Quantity,Unit,Description'" class="--input_upload" />
               </div>
               <div class="upload_item_container">
                 <label class="--label_upload">Ingredient 4</label>
-                <input
-                  type="text"
-                  name="ingredient-4"
-                  placeholder="Quantity,Unit,Description"
-                  class="--input_upload"
-                />
+                <input type="text" name="ingredient-4" placeholder="Quantity,Unit,Description" class="--input_upload" />
               </div>
               <div class="upload_item_container">
                 <label class="--label_upload">Ingredient 5</label>
-                <input
-                  type="text"
-                  name="ingredient-5"
-                  placeholder="Quantity,Unit,Description"
-                  class="--input_upload"
-                />
+                <input type="text" name="ingredient-5" placeholder="Quantity,Unit,Description" class="--input_upload" />
               </div>
               <div class="upload_item_container">
                 <label class="--label_upload">Ingredient 6</label>
-                <input
-                  type="text"
-                  name="ingredient-6"
-                  placeholder="Quantity,Unit,Description"
-                  class="--input_upload"
-                />
+                <input type="text" name="ingredient-6" placeholder="Quantity,Unit,Description" class="--input_upload" />
               </div>
             </div>
           </div>
@@ -309,12 +217,8 @@
     </div>
     <div class="bookmark_section">
       <div class="bookmark_section_exclamation_container">
-        <label for="bookmark_section_alert_message"
-          ><i class="fa-solid fa-triangle-exclamation --add_color"></i
-        ></label>
-        <p class="bookmark_section_alert_message --bookmark_section_message">
-          No bookmarks yet. Find a nice recipe and bookmark it
-        </p>
+        <label for="bookmark_section_alert_message"><i class="fa-solid fa-triangle-exclamation --add_color"></i></label>
+        <p class="bookmark_section_alert_message --bookmark_section_message">No bookmarks yet. Find a nice recipe and bookmark it</p>
       </div>
       <button class="__btn_close_bookmark_section">&times;</button>
       <div class="meal_container meal_container_of_bookmark_section">
@@ -323,11 +227,7 @@
             <i class="fa-solid fa-bookmark --add_color"></i>
           </button>
         </label>
-        <img
-          src="./src/assets/images/pizza.jpg"
-          alt="meal_pic"
-          class="__meal_img --clear_shadow"
-        />
+        <img src="./src/assets/images/pizza.jpg" alt="meal_pic" class="__meal_img --clear_shadow" />
         <div class="meal_info">
           <p class="__meal_name --add_color">PIZZA DIP</p>
           <p class="__recipe_owner">SIMPLY RECIPES</p>

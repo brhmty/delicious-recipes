@@ -1,33 +1,40 @@
 import * as model from './model';
+import { hidingSpinner } from './utilities/helpers';
 import recipeListView from './views/recipeListView';
 import recipeDetailView from './views/recipeDetailView';
 import spinnerView from './views/spinnerView';
+import exclamationView from './views/exclamationView.';
+import searchView from './views/searchView';
 
 const showRecipeList = async function () {
-  //showing spinner
   let check = false;
   const parentElement = '.recipe_list_container';
-  spinnerView.render(check, parentElement);
+  try {
+    //showing spinner
+    spinnerView.render(check, parentElement);
 
-  //filling recipeListView
-  await model.loadRecipes();
-  model.state.recipes.recipeList.forEach(recipe => recipeListView.render(recipe));
+    //filling recipeListView
+    let query = searchView.getQuery();
+    await model.loadRecipes(query);
+    model.state.recipes.recipeList.forEach(recipe => recipeListView.render(recipe));
 
-  //hiding spinner
-  check = true;
-  spinnerView.render(check, parentElement);
+    //hiding spinner
+    hidingSpinner(spinnerView, parentElement);
+  } catch (err) {
+    throw err;
+  }
 };
 
 const showRecipe = async function () {
+  let check = false;
+  const parentElement = '.recipe_container';
   try {
+    //hiding error message
+    exclamationView.render(check, '.recipe_container_exclamation_container');
     //showing spinner
-    let check = false;
-    const parentElement = '.recipe_container';
     spinnerView.render(check, parentElement);
 
-    const recipeContainerActiv = document.querySelector('.recipe_container_active');
-    recipeContainerActiv.style.display = 'none';
-
+    //taking current hash
     const id = window.location.hash.substring(1);
     if (id === '') return '';
 
@@ -36,12 +43,18 @@ const showRecipe = async function () {
     recipeDetailView.render(model.state.recipe);
 
     //hiding spinner
-    check = true;
-    spinnerView.render(check, parentElement);
+    hidingSpinner(spinnerView, parentElement);
   } catch (err) {
-    alert(err);
+    //hiding spinner
+    check = true;
+    hidingSpinner(spinnerView, parentElement);
+    setTimeout(exclamationView.render(check, '.recipe_container_exclamation_container'), 1000);
   }
 };
 
-showRecipeList();
-window.addEventListener('hashchange', showRecipe);
+const init = function () {
+  searchView.addHandlerSearch(showRecipeList);
+  recipeDetailView.addHandlerRender(showRecipe);
+};
+
+init();

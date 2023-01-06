@@ -15,6 +15,13 @@
   .__empty_page_message {
     margin: variables.$empty_page_message_margin_mobile;
   }
+  .recipe_container_exclamation_container {
+    @include mixins.flex-center('', center);
+    @include mixins.error(55%);
+    .fa-triangle-exclamation {
+      margin: 0 2vw;
+    }
+  }
   .recipe_container_active {
     display: none;
   }
@@ -41,9 +48,7 @@
       width: 50%;
       bottom: 0;
       margin-bottom: variables.$meal_name_tag_margin_bottom_mobile;
-      @include mixins.center-horizontally-rotate(
-        variables.$meal_name_tag_margin_rotate_deg_mobile
-      );
+      @include mixins.center-horizontally-rotate(variables.$meal_name_tag_margin_rotate_deg_mobile);
       text-align: center;
       z-index: 2;
 
@@ -52,8 +57,7 @@
         @include mixins.linear-gradient();
         font-size: variables.$meal_name_tag_font_size_mobile;
         text-transform: uppercase;
-        padding: variables.$meal_name_tag_padding_y_mobile
-          variables.$meal_name_tag_padding_x_mobile;
+        padding: variables.$meal_name_tag_padding_y_mobile variables.$meal_name_tag_padding_x_mobile;
       }
     }
   }

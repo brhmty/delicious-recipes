@@ -6,7 +6,6 @@ class RecipeDetailView {
     this.#data = data;
 
     const recipeContainerActive = this.#parentElement.querySelector('.recipe_container_active');
-
     recipeContainerActive.style.display = 'none';
 
     const emptyPageMessage = this.#parentElement.querySelector('.__empty_page_message');
@@ -37,6 +36,10 @@ class RecipeDetailView {
 
       ingredientContainer.appendChild(newIngredientInfoContainer);
     });
+  }
+
+  addHandlerRender(handler) {
+    window.addEventListener('hashchange', handler);
   }
 }
 
