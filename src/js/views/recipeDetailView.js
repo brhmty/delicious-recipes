@@ -1,5 +1,5 @@
+import * as config from '../utilities/configuration';
 import { removeCloneNodes } from '../utilities/helpers';
-import { color_ingredient } from '../utilities/configuration';
 import * as model from '../model';
 
 class RecipeDetailView {
@@ -30,8 +30,11 @@ class RecipeDetailView {
 
     removeCloneNodes(document, '.clone_ingredient');
 
-    //EmptyServingInitalValues
+    //EmptyServingValues
     model.state.servingInitialValues = [];
+    model.state.newServingNumber = config.newServingNumber;
+    model.state.increaseServing = config.increaseServing;
+    model.state.decreaseServing = config.decreaseServing;
 
     this.#data.ingredients.map(item => {
       const newIngredientInfoContainer = ingredientInfoContainer.cloneNode(true);
@@ -57,7 +60,7 @@ class RecipeDetailView {
   }
 
   setBackgroundColor(item) {
-    item.querySelector('.meal_container').style.backgroundColor = color_ingredient;
+    item.querySelector('.meal_container').style.backgroundColor = config.color_ingredient;
   }
 
   removeBackgroundColor(item) {
