@@ -5,12 +5,14 @@ import { resetPaginationView } from './utilities/helpers';
 import { renderRecipeListView } from './utilities/helpers';
 import { emptyRecipeList } from './utilities/helpers';
 import { setCurrentMealContainer } from './utilities/helpers';
+import { servingDefaultNumber, servingDefaultNumber } from './utilities/configuration';
 import recipeListView from './views/recipeListView';
 import recipeDetailView from './views/recipeDetailView';
 import spinnerView from './views/spinnerView';
 import exclamationView from './views/exclamationView.';
 import searchView from './views/searchView';
 import paginationView from './views/paginationView';
+import servingView from './views/servingView';
 
 const showRecipeList = async function () {
   let check = false;
@@ -63,6 +65,7 @@ const showRecipe = async function () {
     const id = model.state.currentHash;
     if (id === '') return 'error';
 
+    //setBackgroundColor
     setCurrentMealContainer(document, id, '.meal_href', '.meal_container');
     recipeDetailView.setBackgroundColor(model.state.currentMealContainer);
 
@@ -119,10 +122,30 @@ const btnDecrease = function () {
   }
 };
 
+const btnServingIncrease = function () {
+  if (model.state.newServingNumber < 8) {
+    model.state.newServingNumber = servingDefaultNumber + model.state.increaseServing;
+    model.state.increaseServing++;
+    model.state.decreaseServing++;
+  }
+  servingView.render('.serving_quantity');
+};
+
+const btnServingDecrease = function () {
+  if (model.state.newServingNumber > 1) {
+    model.state.newServingNumber = servingDefaultNumber + model.state.decreaseServing;
+    model.state.decreaseServing--;
+    model.state.increaseServing--;
+  }
+
+  servingView.render('.serving_quantity');
+};
+
 const init = function () {
   searchView.addHandlerSearch(showRecipeList);
   recipeDetailView.addHandlerRender(showRecipe);
   paginationView.addHandlerRender(btnIncrease, btnDecrease);
+  servingView.addHandlerRender(btnServingIncrease, btnServingDecrease);
 };
 
 init();

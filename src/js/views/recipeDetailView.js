@@ -1,5 +1,6 @@
 import { removeCloneNodes } from '../utilities/helpers';
 import { color_ingredient } from '../utilities/configuration';
+import * as model from '../model';
 
 class RecipeDetailView {
   #parentElement = document.querySelector('.recipe_container');
@@ -29,12 +30,19 @@ class RecipeDetailView {
 
     removeCloneNodes(document, '.clone_ingredient');
 
+    //EmptyServingInitalValues
+    model.state.servingInitialValues = [];
+
     this.#data.ingredients.map(item => {
       const newIngredientInfoContainer = ingredientInfoContainer.cloneNode(true);
 
       newIngredientInfoContainer.classList.toggle('clone_ingredient');
-      newIngredientInfoContainer.querySelector('.__ingredient').textContent = `${item.quantity ?? ''} ${item.unit ?? ''} ${item.description ?? ''}`;
+      newIngredientInfoContainer.querySelector('.serving_quantity').textContent = `${item.quantity ?? ''}`;
+      newIngredientInfoContainer.querySelector('.ingredient_last').textContent = `${item.unit ?? ''} ${item.description ?? ''}`;
       newIngredientInfoContainer.style.display = 'flex';
+
+      //SavingServingInitialValues
+      model.state.servingInitialValues.push(item.quantity ?? '');
 
       ingredientContainer.appendChild(newIngredientInfoContainer);
     });

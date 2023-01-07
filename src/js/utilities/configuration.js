@@ -9,5 +9,6 @@ export const currentPageIncrease = 1;
 export const currentPageDecrease = 0;
 export const btnIncreaseVisibility = 'hidden';
 export const btnDecreaseVisibility = 'hidden';
+export const servingDefaultNumber = 4;
 
 export const color_ingredient = '#f2efee';
