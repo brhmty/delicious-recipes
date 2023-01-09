@@ -21,6 +21,7 @@
     "parcel": "^2.8.2"
   },
   "dependencies": {
+    "@parcel/transformer-js": "^2.8.2",
     "core-js": "^3.27.1",
     "regenerator-runtime": "^0.13.11"
   }

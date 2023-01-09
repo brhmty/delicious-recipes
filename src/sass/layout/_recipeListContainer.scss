@@ -5,10 +5,12 @@
   height: variables.$page_container_height_mobile;
 }
 
-.recipe_list_container {
+.recipe_list_container,
+.bookmark_section {
   position: relative;
   flex-basis: variables.$recipe_list_container_width_mobile;
-  .meal_href {
+  .meal_href,
+  .clone_meal {
     &:link,
     &:visited,
     &:hover,
@@ -22,6 +24,14 @@
     @include mixins.error(55%);
     .fa-triangle-exclamation {
       margin: 0 2vw;
+    }
+  }
+}
+
+.bookmark_section {
+  .clone_meal {
+    &:hover {
+      background-color: white;
     }
   }
 }

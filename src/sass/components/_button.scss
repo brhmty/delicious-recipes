@@ -1,8 +1,8 @@
-@use "../abstracts/mixins";
-@use "../abstracts/variables";
+@use '../abstracts/mixins';
+@use '../abstracts/variables';
 
 button {
-  @include mixins.flex-center("", center);
+  @include mixins.flex-center('', center);
   justify-content: space-evenly;
   border: none;
   border-radius: variables.$btn_border_radius_mobile;
@@ -41,6 +41,9 @@ button {
   padding: variables.$btn_bookmark_padding_mobile;
   text-align: center;
   border-radius: 50%;
+  .filled_icon {
+    display: none;
+  }
 }
 
 .--btn_filled {

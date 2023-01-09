@@ -115,7 +115,8 @@
                   <i class="fa-regular fa-user --add_color"></i>
                 </div>
                 <button class="__btn_bookmark --btn_filled">
-                  <i class="fa-regular fa-bookmark"></i>
+                  <div class="empty_icon"><i class="fa-regular fa-bookmark"></i></div>
+                  <div class="filled_icon"><i class="fa-solid fa-bookmark"></i></div>
                 </button>
               </div>
             </div>
@@ -225,18 +226,7 @@
         <p class="bookmark_section_alert_message --bookmark_section_message">No bookmarks yet. Find a nice recipe and bookmark it</p>
       </div>
       <button class="__btn_close_bookmark_section">&times;</button>
-      <div class="meal_container meal_container_of_bookmark_section">
-        <label for="meal_container ">
-          <button class="unfavorite">
-            <i class="fa-solid fa-bookmark --add_color"></i>
-          </button>
-        </label>
-        <img src="./src/assets/images/pizza.jpg" alt="meal_pic" class="__meal_img --clear_shadow" />
-        <div class="meal_info">
-          <p class="__meal_name --add_color">PIZZA DIP</p>
-          <p class="__recipe_owner">SIMPLY RECIPES</p>
-        </div>
-      </div>
+      <div class="meal_container meal_container_of_bookmark_section"></div>
     </div>
   </body>
   <script type="module" src="./src/js/index.js"></script>

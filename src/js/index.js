@@ -13,6 +13,10 @@ import exclamationView from './views/exclamationView.';
 import searchView from './views/searchView';
 import paginationView from './views/paginationView';
 import servingView from './views/servingView';
+import barView from './views/barView';
+import addRecipeView from './views/addRecipeView';
+import addBookmarkView from './views/bookmarkView';
+import bookmarkView from './views/bookmarkView';
 
 const showRecipeList = async function () {
   let check = false;
@@ -57,7 +61,7 @@ const showRecipe = async function () {
     spinnerView.render(check, parentElement);
     //hide showDetailREcipe
     recipeDetailView.hideRender();
-    //removeBackgrounColor
+    //removeBackgroundColor
     if (model.state.currentMealContainer !== '') recipeDetailView.removeBackgroundColor(model.state.currentMealContainer);
 
     //taking current hash
@@ -66,7 +70,7 @@ const showRecipe = async function () {
     if (id === '') return 'error';
 
     //setBackgroundColor
-    setCurrentMealContainer(document, id, '.meal_href', '.meal_container');
+    setCurrentMealContainer(document, id, '.meal_href');
     recipeDetailView.setBackgroundColor(model.state.currentMealContainer);
 
     //showing detailed view
@@ -141,11 +145,56 @@ const btnServingDecrease = function () {
   servingView.render('.serving_quantity');
 };
 
+const showBarSection = function () {
+  barView.showRender();
+};
+
+const hideBarSection = function () {
+  barView.hideRender();
+};
+
+const showAddRecipeSection = function () {
+  addRecipeView.renderShow();
+};
+
+const hideAddRecipeSection = function () {
+  addRecipeView.renderHide();
+};
+
+const bookmarkIcon = function () {
+  bookmarkView.render();
+  //recipeListView.bookmarkRender();
+};
+
+const showBookmark = function () {
+  bookmarkView.showRender();
+};
+
+const hideBookmark = function () {
+  bookmarkView.hideRender();
+};
+
+const bookmarkUnLoad = function () {
+  model.saveBookmarkList();
+};
+
+const bookmarkLoad = function () {
+  if (model.getBookmarkList() !== null) {
+    model.state.bookmarks.bookmarkList = [...model.getBookmarkList()];
+  }
+};
+
 const init = function () {
   searchView.addHandlerSearch(showRecipeList);
   recipeDetailView.addHandlerRender(showRecipe);
   paginationView.addHandlerRender(btnIncrease, btnDecrease);
   servingView.addHandlerRender(btnServingIncrease, btnServingDecrease);
+  barView.addHandlerRender(showBarSection, hideBarSection);
+  addRecipeView.addHandlerRender(showAddRecipeSection, hideAddRecipeSection);
+  bookmarkView.addHandlerRender(bookmarkIcon, showBookmark, hideBookmark);
 };
 
 init();
+
+window.onload = bookmarkLoad;
+window.onunload = bookmarkUnLoad;

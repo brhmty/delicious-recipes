@@ -4,10 +4,14 @@ import * as model from '../model';
 
 class RecipeDetailView {
   #parentElement = document.querySelector('.recipe_container');
+  #bookmarkSection = document.querySelector('.bookmark_section');
+  #btnBookmark = this.#parentElement.querySelector('.__btn_bookmark');
   #data;
 
   render(data) {
     this.#data = data;
+
+    model.state.currentID = this.#data.id;
 
     const recipeContainerActive = this.#parentElement.querySelector('.recipe_container_active');
 
@@ -27,6 +31,7 @@ class RecipeDetailView {
     cookName.textContent = this.#data.publisher;
     emptyPageMessage.style.display = 'none';
     recipeContainerActive.style.display = 'block';
+    this.#btnBookmark.id = model.state.currentID;
 
     removeCloneNodes(document, '.clone_ingredient');
 
@@ -36,6 +41,13 @@ class RecipeDetailView {
     model.state.increaseServing = config.increaseServing;
     model.state.decreaseServing = config.decreaseServing;
 
+    //clearingbookmark
+    this.#btnBookmark.querySelector('.empty_icon').style.display = 'block';
+    this.#btnBookmark.querySelector('.filled_icon').style.display = 'none';
+
+    this.btnBookmarkRender();
+
+    //ingredients
     this.#data.ingredients.map(item => {
       const newIngredientInfoContainer = ingredientInfoContainer.cloneNode(true);
 
@@ -49,6 +61,17 @@ class RecipeDetailView {
 
       ingredientContainer.appendChild(newIngredientInfoContainer);
     });
+
+    //bookmarksection
+    const local = model.getLocal();
+
+    if (local !== null) {
+      local.forEach(item => {
+        if (item === model.state.currentID) {
+          //console.log(recipeContainerActive);
+        }
+      });
+    }
   }
 
   hideRender() {
@@ -61,10 +84,24 @@ class RecipeDetailView {
 
   setBackgroundColor(item) {
     item.querySelector('.meal_container').style.backgroundColor = config.color_ingredient;
+    //console.log(this.#parentElement.querySelector('.empty_icon').style.display);
   }
 
   removeBackgroundColor(item) {
     item.querySelector('.meal_container').style.backgroundColor = '';
+  }
+
+  btnBookmarkRender() {
+    const local = model.getLocal();
+    // console.log('1 ' + local);
+    if (local !== null) {
+      local.forEach(item => {
+        if (item === model.state.currentID) {
+          this.#btnBookmark.querySelector('.empty_icon').style.display = 'none';
+          this.#btnBookmark.querySelector('.filled_icon').style.display = 'block';
+        }
+      });
+    }
   }
 }
 

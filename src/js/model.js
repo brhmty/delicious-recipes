@@ -7,6 +7,13 @@ export const state = {
   recipes: {
     recipeList: [],
   },
+  bookmarks: {
+    bookmarkList: [],
+  },
+  mealContainers: {
+    mealContainerList: [],
+  },
+  currentID: '',
   recipe: {},
   recipeLength: 0,
   currentHash: 0,
@@ -69,4 +76,26 @@ export const calcTotalPage = async function (recipeLength) {
 
   state.totalPage = recipeLength % 10 === 0 ? quotient : quotient + 1;
   state.btnIncreaseVisibility = state.totalPage === 1 ? 'hidden' : 'visible';
+};
+
+export const saveLocal = function () {
+  const localValue = getLocal();
+  if (localValue === null) {
+    localStorage.setItem('bookmarks', JSON.stringify(state.bookmarks.bookmarkList));
+  } else {
+    localStorage.clear();
+    localStorage.setItem('bookmarks', JSON.stringify(state.bookmarks.bookmarkList));
+  }
+};
+
+export const getLocal = function () {
+  return JSON.parse(localStorage.getItem('bookmarks'));
+};
+
+export const saveBookmarkList = function () {
+  localStorage.setItem('bookmark-list', JSON.stringify(state.bookmarks.bookmarkList));
+};
+
+export const getBookmarkList = function () {
+  return JSON.parse(localStorage.getItem('bookmark-list'));
 };

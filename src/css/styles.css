@@ -94,15 +94,29 @@ nav .navigation_bar i {
   height: 192vh;
 }
 
-.recipe_list_container {
+.recipe_list_container,
+.bookmark_section {
   position: relative;
   flex-basis: 40%;
 }
-.recipe_list_container .meal_href:link, .recipe_list_container .meal_href:visited, .recipe_list_container .meal_href:hover, .recipe_list_container .meal_href:active {
+.recipe_list_container .meal_href:link, .recipe_list_container .meal_href:visited, .recipe_list_container .meal_href:hover, .recipe_list_container .meal_href:active,
+.recipe_list_container .clone_meal:link,
+.recipe_list_container .clone_meal:visited,
+.recipe_list_container .clone_meal:hover,
+.recipe_list_container .clone_meal:active,
+.bookmark_section .meal_href:link,
+.bookmark_section .meal_href:visited,
+.bookmark_section .meal_href:hover,
+.bookmark_section .meal_href:active,
+.bookmark_section .clone_meal:link,
+.bookmark_section .clone_meal:visited,
+.bookmark_section .clone_meal:hover,
+.bookmark_section .clone_meal:active {
   text-decoration: inherit;
   color: inherit;
 }
-.recipe_list_container .recipe_list_exclamation_container {
+.recipe_list_container .recipe_list_exclamation_container,
+.bookmark_section .recipe_list_exclamation_container {
   display: flex;
   flex-direction: "";
   align-items: center;
@@ -113,8 +127,13 @@ nav .navigation_bar i {
   justify-content: space-between;
   display: none;
 }
-.recipe_list_container .recipe_list_exclamation_container .fa-triangle-exclamation {
+.recipe_list_container .recipe_list_exclamation_container .fa-triangle-exclamation,
+.bookmark_section .recipe_list_exclamation_container .fa-triangle-exclamation {
   margin: 0 2vw;
+}
+
+.bookmark_section .clone_meal:hover {
+  background-color: white;
 }
 
 .meal_container {
@@ -381,6 +400,7 @@ nav .navigation_bar i {
   top: 5vh;
   justify-content: space-between;
   display: none;
+  display: flex;
 }
 .bookmark_section .__btn_close_bookmark_section {
   position: absolute;
@@ -530,6 +550,9 @@ button {
   padding: 0.5em;
   text-align: center;
   border-radius: 50%;
+}
+.__btn_bookmark .filled_icon {
+  display: none;
 }
 
 .--btn_filled {

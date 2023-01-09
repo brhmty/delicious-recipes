@@ -54,10 +54,15 @@ export function emptyRecipeList(recipeList) {
   recipeList.length = 0;
 }
 
-export function setCurrentMealContainer(documentObject, currentHash, classHref, classContainer) {
+export function setCurrentMealContainer(documentObject, currentHash, classHref) {
   documentObject.querySelectorAll(classHref).forEach(item => {
     if (item.href.split('#')[1] === currentHash) {
       model.state.currentMealContainer = item;
     }
   });
+}
+
+export function removeSpecificValue(arr, value) {
+  const index = arr.indexOf(value);
+  arr.splice(index, 1);
 }
