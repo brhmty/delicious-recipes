@@ -10,6 +10,7 @@
   position: relative;
   flex-basis: variables.$recipe_list_container_width_mobile;
   .meal_href,
+  .bookmark_href,
   .clone_meal {
     &:link,
     &:visited,

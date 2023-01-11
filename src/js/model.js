@@ -71,6 +71,10 @@ export const loadRecipe = async function (id) {
   }
 };
 
+export const loadBookmarkSection = async function (id) {
+  loadRecipe(id);
+};
+
 export const calcTotalPage = async function (recipeLength) {
   const quotient = Math.floor(recipeLength / 10);
 
@@ -78,8 +82,8 @@ export const calcTotalPage = async function (recipeLength) {
   state.btnIncreaseVisibility = state.totalPage === 1 ? 'hidden' : 'visible';
 };
 
-export const saveLocal = function () {
-  const localValue = getLocal();
+export const saveLocalBookmarks = function () {
+  const localValue = getLocalBookmarks();
   if (localValue === null) {
     localStorage.setItem('bookmarks', JSON.stringify(state.bookmarks.bookmarkList));
   } else {
@@ -88,8 +92,26 @@ export const saveLocal = function () {
   }
 };
 
-export const getLocal = function () {
+export const getLocalBookmarks = function () {
   return JSON.parse(localStorage.getItem('bookmarks'));
+};
+
+export const saveLocalMeals = function () {
+  const localValue = getLocalMeals();
+  if (localValue === null) {
+    localStorage.setItem('meals', JSON.stringify(state.mealContainers.mealContainerList));
+  } else {
+    localStorage.clear();
+    localStorage.setItem('meals', JSON.stringify(state.mealContainers.mealContainerList));
+  }
+};
+
+export const getLocalMeals = function () {
+  return JSON.parse(localStorage.getItem('meals'));
+};
+
+export const saveContainerList = function () {
+  localStorage.setItem('container-list', JSON.stringify(state.mealContainers.mealContainerList));
 };
 
 export const saveBookmarkList = function () {
@@ -98,4 +120,8 @@ export const saveBookmarkList = function () {
 
 export const getBookmarkList = function () {
   return JSON.parse(localStorage.getItem('bookmark-list'));
+};
+
+export const getContainerList = function () {
+  return JSON.parse(localStorage.getItem('container-list'));
 };

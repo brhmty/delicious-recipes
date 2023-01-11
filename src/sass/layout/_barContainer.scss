@@ -1,5 +1,5 @@
-@use "../abstracts/mixins";
-@use "../abstracts/variables";
+@use '../abstracts/mixins';
+@use '../abstracts/variables';
 
 .bar_container {
   @include mixins.flex-center(column, center);
@@ -13,7 +13,7 @@
 
   .add_recipe,
   .bookmark {
-    @include mixins.flex-center("", center);
+    @include mixins.flex-center('', center);
     width: variables.$add_recipe_bookmark_width_mobile;
     height: variables.$add_recipe_bookmark_height_mobile;
     margin-top: variables.$add_recipe_bookmark_margin_top_mobile;

@@ -54,9 +54,14 @@ export function emptyRecipeList(recipeList) {
   recipeList.length = 0;
 }
 
-export function setCurrentMealContainer(documentObject, currentHash, classHref) {
-  documentObject.querySelectorAll(classHref).forEach(item => {
-    if (item.href.split('#')[1] === currentHash) {
+export function setCurrentMealContainer(documentObject, id, mealHref, bookmarkHref) {
+  documentObject.querySelectorAll(mealHref).forEach(item => {
+    if (item.href.split('#')[1] === id) {
+      model.state.currentMealContainer = item;
+    }
+  });
+  documentObject.querySelectorAll(bookmarkHref).forEach(item => {
+    if (item.href.split('#')[1] === id) {
       model.state.currentMealContainer = item;
     }
   });
@@ -65,4 +70,16 @@ export function setCurrentMealContainer(documentObject, currentHash, classHref) 
 export function removeSpecificValue(arr, value) {
   const index = arr.indexOf(value);
   arr.splice(index, 1);
+}
+
+export function removeMealContainer(arr, outer) {
+  let loopIndex = 0;
+  let index = -1;
+  arr.forEach(container => {
+    if (container === outer) {
+      index = loopIndex;
+    }
+    loopIndex++;
+  });
+  if (index => 0) arr.splice(index, 1);
 }

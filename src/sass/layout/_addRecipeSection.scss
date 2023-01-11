@@ -1,5 +1,5 @@
-@use "../abstracts/mixins";
-@use "../abstracts/variables";
+@use '../abstracts/mixins';
+@use '../abstracts/variables';
 
 .add_recipe_section {
   display: none;
@@ -7,10 +7,7 @@
   top: 0vh;
   width: variables.$base_width;
   height: variables.$base_height;
-  backdrop-filter: blur(
-    variables.$add_recipe_section_backdrop_filter_blur_mobile
-  );
-  z-index: 4;
+  backdrop-filter: blur(variables.$add_recipe_section_backdrop_filter_blur_mobile);
 
   .add_recipe_container {
     width: 90vw;

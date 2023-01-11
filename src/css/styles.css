@@ -100,6 +100,10 @@ nav .navigation_bar i {
   flex-basis: 40%;
 }
 .recipe_list_container .meal_href:link, .recipe_list_container .meal_href:visited, .recipe_list_container .meal_href:hover, .recipe_list_container .meal_href:active,
+.recipe_list_container .bookmark_href:link,
+.recipe_list_container .bookmark_href:visited,
+.recipe_list_container .bookmark_href:hover,
+.recipe_list_container .bookmark_href:active,
 .recipe_list_container .clone_meal:link,
 .recipe_list_container .clone_meal:visited,
 .recipe_list_container .clone_meal:hover,
@@ -108,6 +112,10 @@ nav .navigation_bar i {
 .bookmark_section .meal_href:visited,
 .bookmark_section .meal_href:hover,
 .bookmark_section .meal_href:active,
+.bookmark_section .bookmark_href:link,
+.bookmark_section .bookmark_href:visited,
+.bookmark_section .bookmark_href:hover,
+.bookmark_section .bookmark_href:active,
 .bookmark_section .clone_meal:link,
 .bookmark_section .clone_meal:visited,
 .bookmark_section .clone_meal:hover,
@@ -342,7 +350,6 @@ nav .navigation_bar i {
   width: 100vw;
   height: 200vh;
   backdrop-filter: blur(5px);
-  z-index: 4;
 }
 .add_recipe_section .add_recipe_container {
   width: 90vw;

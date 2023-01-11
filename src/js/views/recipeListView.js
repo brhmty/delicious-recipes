@@ -22,15 +22,6 @@ class RecipeListView {
     this.#parentElement.appendChild(newMealHref);
   }
 
-  /* bookmarkRender() {
-    this.#parentElement.querySelectorAll('.clone_meal').forEach(item => {
-      if (item.href.slice(23) === model.state.currentID) {
-        const newMealContainer = item.cloneNode(true);
-        model.state.mealContainers.mealContainerList.push(newMealContainer);
-      }
-    });
-  } */
-
   removeRender(cloneClass) {
     removeCloneNodes(document, cloneClass);
   }

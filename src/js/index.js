@@ -70,7 +70,7 @@ const showRecipe = async function () {
     if (id === '') return 'error';
 
     //setBackgroundColor
-    setCurrentMealContainer(document, id, '.meal_href');
+    setCurrentMealContainer(document, id, '.meal_href', '.bookmark_href');
     recipeDetailView.setBackgroundColor(model.state.currentMealContainer);
 
     //showing detailed view
@@ -81,6 +81,7 @@ const showRecipe = async function () {
     hidingSpinner(spinnerView, parentElement);
   } catch (err) {
     //hiding spinner
+    console.log(err);
     check = true;
     hidingSpinner(spinnerView, parentElement);
     setTimeout(exclamationView.render(check, '.recipe_container_exclamation_container'), 1000);
@@ -154,6 +155,7 @@ const hideBarSection = function () {
 };
 
 const showAddRecipeSection = function () {
+  barView.hideRender();
   addRecipeView.renderShow();
 };
 
@@ -162,11 +164,11 @@ const hideAddRecipeSection = function () {
 };
 
 const bookmarkIcon = function () {
-  bookmarkView.render();
-  //recipeListView.bookmarkRender();
+  bookmarkView.render(setBookmarkSection);
 };
 
 const showBookmark = function () {
+  barView.hideRender();
   bookmarkView.showRender();
 };
 
@@ -175,12 +177,25 @@ const hideBookmark = function () {
 };
 
 const bookmarkUnLoad = function () {
+  model.saveContainerList();
   model.saveBookmarkList();
 };
 
-const bookmarkLoad = function () {
+const loadBookmarkAndContainer = function () {
   if (model.getBookmarkList() !== null) {
     model.state.bookmarks.bookmarkList = [...model.getBookmarkList()];
+  }
+  if (model.getContainerList() !== null) {
+    model.state.mealContainers.mealContainerList = [...model.getContainerList()];
+  }
+};
+
+const setBookmarkSection = function () {
+  if (model.getContainerList() !== null) {
+    bookmarkView.hideExclamation();
+    model.getContainerList().forEach(container => {
+      bookmarkView.createBookmarkElements(container);
+    });
   }
 };
 
@@ -189,12 +204,12 @@ const init = function () {
   recipeDetailView.addHandlerRender(showRecipe);
   paginationView.addHandlerRender(btnIncrease, btnDecrease);
   servingView.addHandlerRender(btnServingIncrease, btnServingDecrease);
-  barView.addHandlerRender(showBarSection, hideBarSection);
-  addRecipeView.addHandlerRender(showAddRecipeSection, hideAddRecipeSection);
-  bookmarkView.addHandlerRender(bookmarkIcon, showBookmark, hideBookmark);
+  barView.addHandlerRender(showBarSection, hideBarSection, showAddRecipeSection, hideAddRecipeSection, showBookmark, hideBookmark);
+  bookmarkView.addHandlerRender(bookmarkIcon);
+  setBookmarkSection();
 };
 
 init();
 
-window.onload = bookmarkLoad;
+window.onload = loadBookmarkAndContainer;
 window.onunload = bookmarkUnLoad;

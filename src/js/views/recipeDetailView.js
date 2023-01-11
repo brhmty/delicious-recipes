@@ -61,17 +61,6 @@ class RecipeDetailView {
 
       ingredientContainer.appendChild(newIngredientInfoContainer);
     });
-
-    //bookmarksection
-    const local = model.getLocal();
-
-    if (local !== null) {
-      local.forEach(item => {
-        if (item === model.state.currentID) {
-          //console.log(recipeContainerActive);
-        }
-      });
-    }
   }
 
   hideRender() {
@@ -84,15 +73,17 @@ class RecipeDetailView {
 
   setBackgroundColor(item) {
     item.querySelector('.meal_container').style.backgroundColor = config.color_ingredient;
-    //console.log(this.#parentElement.querySelector('.empty_icon').style.display);
+    document.querySelector('.bookmark_section').style.display = 'none';
+    document.querySelector('body').style.overflowY = 'scroll';
   }
 
   removeBackgroundColor(item) {
-    item.querySelector('.meal_container').style.backgroundColor = '';
+    if (item.className === 'meal_href clone_meal') item.querySelector('.meal_container').style.backgroundColor = '';
   }
 
+  //btnBookmarkIcons
   btnBookmarkRender() {
-    const local = model.getLocal();
+    const local = model.getLocalBookmarks();
     // console.log('1 ' + local);
     if (local !== null) {
       local.forEach(item => {
