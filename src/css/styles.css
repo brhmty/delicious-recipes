@@ -350,6 +350,7 @@ nav .navigation_bar i {
   width: 100vw;
   height: 200vh;
   backdrop-filter: blur(5px);
+  z-index: 5;
 }
 .add_recipe_section .add_recipe_container {
   width: 90vw;

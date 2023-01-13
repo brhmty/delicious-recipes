@@ -1,20 +1,21 @@
 import * as config from '../utilities/configuration';
 import { removeCloneNodes } from '../utilities/helpers';
+import { API_KEY } from '../utilities/configuration';
 import * as model from '../model';
 
 class RecipeDetailView {
   #parentElement = document.querySelector('.recipe_container');
-  #bookmarkSection = document.querySelector('.bookmark_section');
   #btnBookmark = this.#parentElement.querySelector('.__btn_bookmark');
   #data;
 
   render(data) {
     this.#data = data;
-
+    //serving_container_user;
     model.state.currentID = this.#data.id;
 
     const recipeContainerActive = this.#parentElement.querySelector('.recipe_container_active');
 
+    const userIcon = this.#parentElement.querySelector('.serving_container_user');
     const emptyPageMessage = this.#parentElement.querySelector('.__empty_page_message');
     const bigImg = this.#parentElement.querySelector('.__img_big');
     const mealNameTag = this.#parentElement.querySelector('.__meal_name_tag');
@@ -30,6 +31,7 @@ class RecipeDetailView {
     numberOfServing.textContent = this.#data.servings;
     cookName.textContent = this.#data.publisher;
     emptyPageMessage.style.display = 'none';
+    userIcon.style.display = this.#data.key === API_KEY ? 'flex' : 'hidden';
     recipeContainerActive.style.display = 'block';
     this.#btnBookmark.id = model.state.currentID;
 
@@ -84,7 +86,6 @@ class RecipeDetailView {
   //btnBookmarkIcons
   btnBookmarkRender() {
     const local = model.getLocalBookmarks();
-    // console.log('1 ' + local);
     if (local !== null) {
       local.forEach(item => {
         if (item === model.state.currentID) {

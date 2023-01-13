@@ -8,6 +8,7 @@
   width: variables.$base_width;
   height: variables.$base_height;
   backdrop-filter: blur(variables.$add_recipe_section_backdrop_filter_blur_mobile);
+  z-index: 5;
 
   .add_recipe_container {
     width: 90vw;

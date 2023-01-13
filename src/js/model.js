@@ -1,7 +1,7 @@
 import { async } from 'regenerator-runtime';
-import { API_PATH } from './utilities/configuration';
+import { API_PATH, API_KEY } from './utilities/configuration';
 import * as config from './utilities/configuration';
-import { getJSON } from './utilities/helpers';
+import { getJSON, sendJSON } from './utilities/helpers';
 
 export const state = {
   recipes: {
@@ -34,7 +34,7 @@ export const state = {
 
 export const loadRecipes = async function (query) {
   try {
-    const data = await getJSON(`${API_PATH}?search=${query}`);
+    const data = await getJSON(`${API_PATH}?search=${query}&key=${API_KEY}`);
     let { recipes } = data.data;
     state.recipeLength = recipes.length;
 
@@ -44,6 +44,7 @@ export const loadRecipes = async function (query) {
         title: item.title,
         imageURL: item.image_url,
         publisher: item.publisher,
+        ...(item.key && { key: item.key }),
       });
     });
   } catch (err) {
@@ -51,21 +52,27 @@ export const loadRecipes = async function (query) {
   }
 };
 
+const createRecipeData = function (data) {
+  let { recipe } = data.data;
+
+  return {
+    id: recipe.id,
+    title: recipe.title,
+    publisher: recipe.publisher,
+    sourceURL: recipe.source_url,
+    imageURL: recipe.image_url,
+    servings: recipe.servings,
+    cookingTime: recipe.cooking_time,
+    ingredients: recipe.ingredients,
+    ...(recipe.key && { key: recipe.key }),
+  };
+};
+
 export const loadRecipe = async function (id) {
   try {
-    const data = await getJSON(`${API_PATH}/${id}`);
-    let { recipe } = data.data;
+    const data = await getJSON(`${API_PATH}/${id}?key=${API_KEY}`);
 
-    state.recipe = {
-      id: recipe.id,
-      title: recipe.title,
-      publisher: recipe.publisher,
-      sourceURL: recipe.source_url,
-      imageURL: recipe.image_url,
-      servings: recipe.servings,
-      cookingTime: recipe.cooking_time,
-      ingredients: recipe.ingredients,
-    };
+    state.recipe = createRecipeData(data);
   } catch (err) {
     throw err;
   }
@@ -124,4 +131,34 @@ export const getBookmarkList = function () {
 
 export const getContainerList = function () {
   return JSON.parse(localStorage.getItem('container-list'));
+};
+
+export const uploadRecipe = async function (newRecipe) {
+  try {
+    const ingredients = Object.entries(newRecipe)
+      .filter(entry => entry[0].startsWith('ingredient') && entry[1] !== '')
+      .map(ing => {
+        const ingArr = ing[1].split(',').map(el => el.trim());
+        if (ingArr.length !== 3) throw new Error('Wrong ingredient format! Please use the correct format :)');
+
+        const [quantity, unit, description] = ingArr;
+
+        return { quantity: quantity ? +quantity : null, unit, description };
+      });
+
+    const recipe = {
+      title: newRecipe.title,
+      source_url: newRecipe.sourceUrl,
+      image_url: newRecipe.image,
+      publisher: newRecipe.publisher,
+      cooking_time: +newRecipe.cookingTime,
+      servings: +newRecipe.servings,
+      ingredients,
+    };
+
+    const data = await sendJSON(`${API_PATH}?key=${API_KEY}`, recipe);
+    state.recipe = createRecipeData(data);
+  } catch (err) {
+    throw err;
+  }
 };
