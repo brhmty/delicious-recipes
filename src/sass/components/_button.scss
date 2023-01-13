@@ -52,13 +52,6 @@ button {
   color: white;
 }
 
-.__btn_instruction {
-  width: variables.$btn_instruction_width_mobile;
-  height: variables.$btn_instruction_height_mobile;
-  font-size: variables.$btn_instruction_font_size_mobile;
-  border-radius: variables.$btn_instruction_border_radius_mobile;
-}
-
 .__btn_close_recipe_data {
   margin-right: -85vw;
   margin-top: 1vh;

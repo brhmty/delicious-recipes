@@ -1,11 +1,16 @@
 @use '../abstracts/mixins';
 @use '../abstracts/variables';
 
-.bar_container {
+.bar_container_nav {
   @include mixins.flex-center(column, center);
   width: 100vw;
   height: 100vh;
   white-space: nowrap;
+  display: none;
+}
+
+.bar_container {
+  @extend .bar_container_nav;
   z-index: 4;
   @include mixins.linear-gradient;
   position: absolute;

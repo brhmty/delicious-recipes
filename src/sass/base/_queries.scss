@@ -1,0 +1,308 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+@media (min-width: 768px) {
+  body {
+    @include mixins.linear-gradient;
+    overflow-x: hidden;
+  }
+
+  .main_container {
+    width: 90vw;
+    height: 200vh;
+    border-radius: 20%;
+    @include mixins.center;
+    nav {
+      height: variables.$navigation_height;
+      margin-top: 7vh;
+      border-radius: 10px 10px 0 0;
+      background-color: variables.$color_main_container;
+      flex-direction: row;
+      .company_name_icon_a_container {
+        width: variables.$company_name_icon_a_container_width;
+        height: variables.$company_name_icon_a_container_height;
+        .__company_name {
+          font-size: variables.$company_name_font_size;
+          margin-left: variables.$company_name_margin_left;
+        }
+      }
+      .navigation {
+        width: 35vw;
+        height: 10vh;
+        .searchbar {
+          padding-right: variables.$search_overlap_margin;
+          width: 32vw;
+          line-height: 8vh;
+          border-radius: 200px;
+          font-size: 1em;
+          text-indent: 1em;
+        }
+        .btn_submit {
+          margin-left: calc(variables.$search_overlap_margin * -1);
+          height: 8vh;
+          width: 12vw;
+          border-radius: 200px;
+        }
+      }
+      .bar_container_nav {
+        @include mixins.flex-center(row, center);
+        width: 20vw;
+        height: 10vh;
+        white-space: nowrap;
+        .add_recipe_nav,
+        .bookmark_nav {
+          @include mixins.flex-center(row, '');
+          justify-content: center;
+          width: variables.$add_recipe_bookmark_width;
+          height: variables.$add_recipe_bookmark_height;
+          .__add_recipe,
+          .__bookmark {
+            font-size: variables.$bookmark_add_recipe_font_size;
+            font-weight: bold;
+            margin-left: variables.$add_recipe_bookmark_margin_left;
+            cursor: pointer;
+            color: dimgray;
+          }
+        }
+      }
+      .navigation_bar {
+        display: none;
+      }
+    }
+
+    .page_container {
+      border-radius: 0px 0px 10px 10px;
+      margin-top: variables.$page_container_margin_top;
+      height: variables.$page_container_height;
+      .recipe_list_container {
+        flex-basis: variables.$recipe_list_container_width;
+        height: variables.$page_container_height;
+        border-radius: 0px 0px 0px 10px;
+        background-color: white;
+        .--bookmark_section_message {
+          font-size: variables.$bookmark_section_message;
+        }
+        .meal_container {
+          height: variables.$meal_container_height;
+          .__meal_img {
+            width: variables.$meal_img_width_height;
+            height: variables.$meal_img_width_height;
+          }
+          .__meal_name {
+            font-size: variables.$meal_name_font_size;
+          }
+          .__recipe_owner {
+            font-size: variables.$recipe_owner_font_size;
+            color: dimgray;
+          }
+        }
+        .btn_pagination_container {
+          height: variables.$btn_pagination_container_height;
+          bottom: variables.$footer_bottom_position;
+          .page_left,
+          .page_right {
+            width: variables.$btn_left_right_width;
+            height: variables.$btn_left_right_height;
+            font-size: variables.$btn_left_right_font_size;
+            border-radius: 200px;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .recipe_container {
+        flex-basis: variables.$recipe_container_width;
+        .__empty_page_message {
+          margin-left: variables.$empty_page_message_margin;
+          font-size: 1.5em;
+        }
+        .img_container {
+          width: 100%;
+          height: variables.$img_container_height;
+          .__img_big {
+            object-fit: cover;
+          }
+          .meal_name_tag {
+            width: 50%;
+            //padding: 10vw 10vh;
+            line-height: 8vh;
+            .__meal_name_tag {
+              font-size: variables.$meal_name_tag_font_size;
+              font-weight: bold;
+              color: white;
+              padding: variables.$meal_name_tag_padding_y variables.$meal_name_tag_padding_x;
+            }
+          }
+        }
+        .serving_container {
+          margin-top: variables.$serving_container_margin_top;
+          margin-bottom: 5vh;
+          height: variables.$serving_container_height;
+          justify-content: space-around;
+          .cooking_time_container {
+            width: variables.$cooking_time_container_width;
+            margin-left: 5vw;
+            .__cooking_time_icon,
+            .__cooking_time_number,
+            .__minute_text {
+              font-size: variables.$cooking_writings_font_size;
+            }
+            .__minute_text {
+              color: dimgray;
+            }
+          }
+          .number_of_serving_container {
+            width: variables.$number_of_serving_container_width;
+            .__number_of_serving_icon,
+            .__number_of_serving,
+            .__servings_text {
+              font-size: variables.$serving_writings_font_size;
+            }
+            .btn_number_of_serving_container {
+              justify-content: space-between;
+              .__btn_decrease,
+              .__btn_increase {
+                border: solid 1px variables.$color_gradient_body_end;
+                width: variables.$btn_decrease_increase_height_width;
+                height: variables.$btn_decrease_increase_height_width;
+                .--minus,
+                .--plus {
+                  font-size: 10px;
+                }
+              }
+            }
+          }
+          .btn_bookmark_container {
+            width: variables.$btn_bookmark_container_width;
+            margin-right: variables.$btn_bookmark_container_margin_right;
+            display: flex;
+            justify-content: flex-end;
+            .serving_container_user {
+              margin-right: 1vw;
+              font-size: 1em;
+            }
+            .__btn_bookmark {
+              font-size: variables.$btn_bookmark_font_size;
+              padding: variables.$btn_bookmark_padding;
+              padding-right: 0.75em;
+              padding-left: 0.75em;
+              cursor: pointer;
+            }
+            .serving_container_user {
+              font-size: variables.$serving_container_user_font_size;
+            }
+          }
+        }
+        .ingredient_container {
+          height: variables.$ingredient_container_height;
+          @include mixins.flex-center(column, center);
+          .__ingredient_heading {
+            font-size: 1.3em;
+            margin-bottom: 1vh;
+          }
+          .ingredient_info_container {
+            height: variables.$ingredient_info_container_height;
+            width: 30vw;
+            font-size: variables.$ingredient_info_container_font_size;
+            color: dimgray;
+            .--check_icon {
+              margin-left: variables.$check_icon_margin_left_mobile;
+            }
+            .__ingredient {
+              margin-left: variables.$ingredient_margin_left_mobile;
+            }
+          }
+        }
+        .cooking_instruction_container {
+          @include mixins.flex-center(column, center);
+          width: 70%;
+          height: 45vh;
+          bottom: 14vh;
+          .__instruction_heading {
+            font-size: 1.5em;
+            font-weight: lighter;
+          }
+          .__instruction_info {
+            width: 70%;
+            font-size: 1.3em;
+            margin-top: variables.$instruction_info_margin_top;
+            color: dimgray;
+          }
+        }
+      }
+    }
+  }
+  .add_recipe_section {
+    width: variables.$base_width;
+    height: variables.$base_height;
+    background-color: rgba($color: #000000, $alpha: 0.2);
+    backdrop-filter: blur(variables.$add_recipe_section_backdrop_filter_blur);
+
+    .add_recipe_container {
+      width: 80vw;
+      height: variables.$add_recipe_container_height;
+      left: 10vw;
+      top: variables.$add_recipe_container_top;
+      .__btn_close_recipe_data {
+        margin-right: -75vw;
+        margin-top: 2vh;
+        font-size: 3vw;
+        background-color: transparent;
+        color: dimgray;
+      }
+      .upload_form_container {
+        .--upload__heading {
+          font-size: 1.5em;
+          color: dimgray;
+        }
+        .upload_item_container {
+          height: 7vh;
+          margin-top: 2vh;
+          .--label_upload {
+            font-size: variables.$label_upload_font_size;
+            margin-right: variables.$label_upload_margin_right;
+            color: dimgray;
+          }
+          .--input_upload {
+            width: variables.$input_upload_width_mobile;
+            height: 4vh;
+            border-radius: 0px;
+            border-color: dimgray;
+          }
+        }
+      }
+      .btn_upload {
+        height: variables.$btn_upload_hight;
+        width: variables.$btn_upload_width;
+        margin: variables.$btn_upload_margin auto;
+        font-size: 1.5em;
+        border-radius: 200px;
+      }
+    }
+  }
+  .bookmark_section {
+    width: 30vw;
+    height: 50vh;
+    top: 16vh;
+    right: 5vw;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    .bookmark_section_exclamation_container {
+      @include mixins.flex-center('', center);
+      @include mixins.error;
+      display: flex;
+    }
+
+    .__btn_close_bookmark_section {
+      right: variables.$btn_close_bookmark_section_right_mobile;
+      font-size: variables.$btn_close_bookmark_section_font_size;
+      background-color: transparent;
+      color: dimgray;
+    }
+  }
+}

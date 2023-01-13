@@ -1,11 +1,11 @@
-@use "../layout/barContainer";
+@use '../layout/barContainer';
 
-@use "../base/typography";
-@use "../abstracts/variables";
-@use "../abstracts/mixins";
+@use '../base/typography';
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
 
 nav {
-  @include mixins.flex-center("", center);
+  @include mixins.flex-center('', center);
   width: 100%;
   height: variables.$navigation_height_mobile;
   margin-top: variables.$nav_margin_top_mobile;
@@ -24,7 +24,7 @@ nav {
   }
 
   form {
-    @include mixins.flex-center("", center);
+    @include mixins.flex-center('', center);
     height: 5vh;
     .searchbar {
       box-sizing: border-box;
@@ -41,7 +41,7 @@ nav {
   }
 
   .navigation_bar {
-    @include mixins.flex-center("", center);
+    @include mixins.flex-center('', center);
     font-size: variables.$navbar_size_mobile;
     i {
       color: black;

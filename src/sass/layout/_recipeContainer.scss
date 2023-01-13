@@ -56,6 +56,7 @@
         box-decoration-break: clone;
         @include mixins.linear-gradient();
         font-size: variables.$meal_name_tag_font_size_mobile;
+        font-style: italic;
         text-transform: uppercase;
         padding: variables.$meal_name_tag_padding_y_mobile variables.$meal_name_tag_padding_x_mobile;
       }

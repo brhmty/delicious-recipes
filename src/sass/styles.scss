@@ -1,14 +1,16 @@
-@use "./base/base";
-@use "./abstracts/mixins";
+@use './base/base';
+@use './abstracts/mixins';
 
-@use "./layout/navigation";
-@use "./layout/pageContainer";
-@use "./layout/addRecipeSection";
-@use "./layout/bookmarkSection";
+@use './layout/navigation';
+@use './layout/pageContainer';
+@use './layout/addRecipeSection';
+@use './layout/bookmarkSection';
 
-@use "./components/brandName";
-@use "./components/brandLogo";
-@use "./components/input";
-@use "./components/writings";
-@use "./components/button";
-@use "./components/spinner";
+@use './components/brandName';
+@use './components/brandLogo';
+@use './components/input';
+@use './components/writings';
+@use './components/button';
+@use './components/spinner';
+
+@use './base/queries';
