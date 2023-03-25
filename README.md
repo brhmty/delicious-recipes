@@ -1,5 +1,5 @@
 # delicious-recipes
-#### I have used Html, CSS/SASS, Js, ES6 modules, MVC architecture, Parcel. I have started with Mobile First Desing. Responsive website.
+#### I have used Html, CSS/SASS, Js, ES6 modules, MVC architecture, Parcel. I have designed it in accordance with Mobile First Desing. Responsive website.
 #### Bookmarks are saved in local storage.
 #### API address: https://forkify-api.herokuapp.com/v2
 #### Ingredient format to create new recipe: quantity,unit,description (1,kg,rice)
